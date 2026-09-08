@@ -1,0 +1,95 @@
+[
+  {
+    "slug": "shabad-shazam",
+    "name": "Shabad Shazam",
+    "category": "Audio recognition",
+    "type": "Personal project",
+    "status": "Prototype · In development",
+    "summary": "Recognizing indexed Gurbani recordings from a short audio sample, with hymn and performer details in a mobile interface.",
+    "tech": ["Flutter", "Dart", "Python", "FastAPI", "PostgreSQL", "Docker"],
+    "accent": "lime",
+    "figureLabel": "Recognition pipeline",
+    "flow": ["Audio sample", "Spectral peaks", "Fingerprint matching", "Recording details"],
+    "question": "How can a short audio recording lead a listener to the corresponding Gurbani hymn and performer?",
+    "context": "Shabad Shazam is a mobile application prototype for identifying recordings from an indexed catalog of Gurbani, the sacred hymns of the Sikh tradition. The application connects microphone capture to an acoustic-fingerprinting service and presents recording metadata and external listening links.",
+    "role": "Personal project spanning the Flutter interface, recognition-service integration, audio-fingerprinting pipeline, metadata ingestion, and local backend setup.",
+    "work": [
+      { "title": "Fingerprinting the recording", "text": "Spectral analysis identifies prominent peaks in the audio. Peak-pair hashing converts those features into compact fingerprints, which are matched against a PostgreSQL catalog using time alignment." },
+      { "title": "Connecting recognition to the listener", "text": "A Flutter interface captures microphone audio and sends it to FastAPI services. Results return hymn and performer information, alongside local search history and external listening links." },
+      { "title": "Building the catalog workflow", "text": "A CSV-driven ingestion workflow generates fingerprints and maintains recording metadata. Docker Compose provides a reproducible local environment for the backend and database." }
+    ],
+    "outcome": "The prototype brings audio capture, catalog matching, and recording information into one application flow.",
+    "limits": "Recognition is limited to recordings present in the indexed catalog. Identification of arbitrary live performances, store publication, and production-scale accuracy or latency are not established.",
+    "takeaway": "The catalog and ingestion workflow are as important as the matching algorithm: recognition depends on having the right reference recordings and reliable metadata."
+  },
+  {
+    "slug": "neuro-data-lab",
+    "name": "Neuro Data Lab",
+    "category": "Brain–computer interfaces",
+    "type": "Capstone Project II · Team project",
+    "status": "Offline experimental evaluation",
+    "summary": "A PyQt toolbox for EEG preparation and movement classification, exploring a foundation for brain-controlled interaction.",
+    "tech": ["Python", "PyQt", "scikit-learn", "EMOTIV EPOC X"],
+    "accent": "blue",
+    "figureLabel": "Experimental workflow",
+    "flow": ["Movement visualizations", "14-channel EEG", "ICA & classifiers", "Offline evaluation"],
+    "question": "Can EEG recorded during forward and backward movement visualizations be classified into directional categories?",
+    "context": "The team investigated EEG-based interaction by collecting recordings while participants viewed movement visualizations in a first-person graphical simulation. Game control motivated the work; the completed scope focused on data collection, preparation, and offline classification.",
+    "role": "Collaborated with the capstone team on the experimental workflow and development of a PyQt toolbox for EEG preparation, Independent Component Analysis, and classifier evaluation.",
+    "work": [
+      { "title": "Collecting labeled signals", "text": "Multiple participants wore a 14-channel EEG headset while viewing forward and backward movement visualizations. Timed directional cues supplied labels for the collected data." },
+      { "title": "Making analysis accessible", "text": "A PyQt toolbox supported EEG data preparation and Independent Component Analysis, bringing the preparation and modeling stages into a graphical workflow." },
+      { "title": "Comparing classification approaches", "text": "Five machine-learning classifiers were trained and evaluated. Extra Trees reached 95.45% accuracy in the project's offline evaluation." }
+    ],
+    "metric": { "value": "95.45%", "label": "Extra Trees · offline evaluation accuracy" },
+    "outcome": "The project produced a graphical analysis toolbox and an offline classification result that provides a starting point for mapping EEG signals to directional commands.",
+    "limits": "The reported accuracy describes the project's offline evaluation. It does not establish performance on unseen participants or sessions, and live EEG-driven game control was future scope.",
+    "takeaway": "Evaluation design determines what a model result can support. Subject- and session-independent testing would be an important next step toward practical interaction."
+  },
+  {
+    "slug": "drivesafe",
+    "name": "DriveSafe",
+    "category": "Computer vision & control",
+    "type": "Capstone Project I · Team project",
+    "status": "Monitoring prototype & control simulation",
+    "summary": "Webcam-based drowsiness monitoring with timed alerts, alongside an Arduino safety-response simulation.",
+    "tech": ["Python", "OpenCV", "dlib", "Arduino", "Tinkercad"],
+    "accent": "orange",
+    "figureLabel": "Driver-monitoring pipeline",
+    "flow": ["Webcam frames", "68 facial landmarks", "Timed detection", "Visual & audible alerts"],
+    "question": "How can sustained signs of driver drowsiness be distinguished from brief eye and mouth movements?",
+    "context": "DriveSafe combines a real-time webcam-monitoring prototype with a separately tested vehicle-control simulation. The vision component looks for prolonged eye closure, yawning, and indicators of distraction; the simulation explores obstacle-aware motor responses.",
+    "role": "Contributed across detection, sensing, motor-control simulation, testing, integration, and documentation as part of a capstone team.",
+    "work": [
+      { "title": "Measuring facial movement", "text": "OpenCV handles video capture and image preprocessing, while dlib supplies 68-point facial landmarks. Separate normalized eye-opening and mouth-opening measurements support drowsiness detection." },
+      { "title": "Responding to sustained patterns", "text": "Time-based detection logic distinguishes sustained signs of drowsiness from short facial movements. Visual and audible warnings escalate when the detected condition persists." },
+      { "title": "Simulating a safety response", "text": "An Arduino-based control system was developed and tested in Tinkercad using four ultrasonic sensors, motor control, and staged deceleration to explore obstacle-aware responses." }
+    ],
+    "outcome": "The team developed a driver-monitoring prototype with escalating alerts and a simulated obstacle-aware motor-control workflow.",
+    "limits": "The vehicle-control component was simulated in Tinkercad. Road deployment and a demonstrated automated connection between the vision detector and control simulation are outside the established scope.",
+    "takeaway": "Timing and state transitions matter alongside detection: a warning system must account for brief movements, sustained conditions, and recovery."
+  },
+  {
+    "slug": "med-e-care",
+    "name": "MED-e-CARE",
+    "category": "Full-stack development",
+    "type": "Software Engineering · Team project",
+    "status": "Academic web application",
+    "summary": "A pharmacy-management application connecting customer ordering, inventory administration, and an NGO ordering workflow.",
+    "tech": ["HTML", "Python", "SQL", "UML"],
+    "accent": "pink",
+    "figureLabel": "Application structure",
+    "flow": ["Customer & admin UI", "Python application", "SQL data model", "Orders & inventory"],
+    "question": "How can customer ordering, pharmacy inventory, and NGO medicine availability be represented in one application?",
+    "context": "MED-e-CARE was developed as an end-to-end academic pharmacy-management web application during the COVID-19 pandemic. An HTML interface connected to Python backend logic and a relational database.",
+    "role": "Co-developed customer and administrative workflows, the NGO ordering flow, and the supporting requirements and relational-data design.",
+    "work": [
+      { "title": "Supporting the customer journey", "text": "The application covered registration, login, account management, medicine selection, order placement, and order history." },
+      { "title": "Managing pharmacy operations", "text": "Administrative functions supported inventory updates and sales tracking. Customer, stock, and order information were represented in a SQL database." },
+      { "title": "Modeling a distinct ordering workflow", "text": "An NGO ordering flow used expiry-based medicine availability. UML models translated application requirements into relationships and interactions among users, inventory, and orders." }
+    ],
+    "outcome": "The project brought customer ordering, inventory administration, and NGO availability into a connected application with an explicit relational model.",
+    "limits": "This was an academic application. Production adoption, payment-gateway integration, and operational usage metrics are not established.",
+    "takeaway": "Clear requirements and a coherent data model make it easier to connect different user roles without treating each workflow as a separate application."
+  }
+]
