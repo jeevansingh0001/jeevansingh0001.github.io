@@ -1,6 +1,7 @@
 dist/
 node_modules/
 .local/
+AGENTS.md
 .env
 .env.*
 !.env.example
