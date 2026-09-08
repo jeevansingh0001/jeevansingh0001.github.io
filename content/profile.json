@@ -6,19 +6,57 @@
   "github": "https://github.com/jeevansingh0001",
   "linkedin": "https://www.linkedin.com/in/jagjeevan-singh-006467202/",
   "url": "https://jeevansingh0001.github.io",
-  "intro": "I build enterprise software and explore how signals become useful applications.",
   "about": "At Amdocs, I work on enterprise telecom systems, from CRM and order management to release automation and production support. My projects extend that engineering practice into audio recognition, computer vision, and brain–computer interfaces.",
-  "direction": "I am interested in deepening my technical foundations through graduate study, connecting practical software delivery with the study of computing systems and applied machine learning.",
   "experience": {
     "company": "Amdocs",
     "period": "December 2023 – Present",
     "current": "Software Developer",
     "previous": "Associate Software Engineer",
     "areas": [
-      { "title": "Enterprise telecom systems", "text": "Develop and enhance B2B CRM and order-management capabilities using Java, Spring Boot, REST APIs, and Oracle SQL. Collaborate across order orchestration, provisioning, product catalog, and billing integration." },
-      { "title": "Delivery & production ownership", "text": "Own CRM enhancements from requirements and development through testing, deployment, and issue resolution. Support recurring releases, investigate defects, and coordinate dependencies across technical and business teams." },
-      { "title": "Automation & modernization", "text": "Built a Python and Flask deployment-validation application for database checks, release tracking, and Excel and email reporting. Migrated application scripts from 32-bit to 64-bit Linux and supported integration validation and production cutover." },
-      { "title": "Developer tooling & notifications", "text": "Enhanced order-triggered customer notifications and template previews. Automated template conversion, Git check-ins, release packaging, and deployment imports; developed and adapted Java dependency-analysis, SQL rollback, and secure file-transfer utilities." }
+      {
+        "title": "CRM & order management",
+        "text": "Developed and enhanced enterprise CRM and Order Management System capabilities using Java, Spring Boot, REST APIs, and Oracle SQL to support B2B telecom order processing and service delivery."
+      },
+      {
+        "title": "Cross-system integration",
+        "text": "Collaborated across CRM, OMS, provisioning, and billing teams on integrated business workflows, including order orchestration, Master Enterprise Catalog (MEC), and Kenan billing integration."
+      },
+      {
+        "title": "End-to-end delivery",
+        "text": "Owned business-critical CRM enhancements from requirement analysis and solution development through testing, production deployment, and issue resolution, coordinating technical dependencies and changing business requirements."
+      },
+      {
+        "title": "Deployment validation application",
+        "text": "Designed and developed a Python and Flask application using Oracle Database and OpenPyXL to automate database verification, release tracking, and Excel and email reporting across testing, pre-production, and production environments."
+      },
+      {
+        "title": "Linux infrastructure migration",
+        "text": "Delivered application script migration from legacy 32-bit Linux infrastructure to a 64-bit environment, coordinating integration validation, production cutover, and post-deployment monitoring."
+      },
+      {
+        "title": "Release delivery & production support",
+        "text": "Supported recurring releases through Git, Jenkins, and CI/CD workflows, and resolved production and regression defects."
+      },
+      {
+        "title": "Telecom product foundations",
+        "text": "Completed structured Amdocs CRM and OMS product training covering telecom Business Support Systems, customer and account management, order lifecycles, and the workflows connecting service fulfillment and billing."
+      },
+      {
+        "title": "Application enhancements",
+        "text": "Implemented application enhancements and resolved defects using Java, Spring Boot, and SQL, translating defined business requirements into functionality within an Agile development environment."
+      },
+      {
+        "title": "Customer notifications & previews",
+        "text": "Enhanced a CRM notification framework for communication triggered by order creation, updates, and amendments. Developed an interface feature to preview notification templates and associated product parameters."
+      },
+      {
+        "title": "Notification release automation",
+        "text": "Automated template conversion, Git check-ins, change package generation, and deployment imports to standardize notification release workflows and reduce repetitive preparation."
+      },
+      {
+        "title": "Developer utilities & investigation",
+        "text": "Developed and adapted utilities for Java dependency analysis, SQL rollback generation, and secure file transfer, while contributing to root-cause investigations and retrospectives."
+      }
     ]
   },
   "education": {
@@ -28,23 +66,138 @@
     "period": "July 2019 – June 2023",
     "grade": "7.71 / 10 CGPA",
     "focus": "Elective focus: Mathematics and Computing",
-    "courses": ["Data Structures & Algorithms", "Operating Systems", "Database Management Systems", "Software Engineering", "Computer Networks", "Machine Learning", "Probability & Statistics", "Matrix Computation", "Mathematical Modeling & Simulation", "Computational Number Theory"]
+    "courses": [
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Database Management Systems",
+      "Software Engineering",
+      "Computer Networks",
+      "Machine Learning",
+      "Probability & Statistics",
+      "Matrix Computation",
+      "Mathematical Modeling & Simulation",
+      "Computational Number Theory"
+    ]
   },
   "skills": [
-    { "group": "Languages", "items": ["Java", "Python", "SQL", "JavaScript", "Shell scripting", "Dart"] },
-    { "group": "Applications & data", "items": ["Spring Boot", "Flask", "FastAPI", "Flutter", "React", "REST APIs", "Oracle Database", "PostgreSQL", "MySQL"] },
-    { "group": "Scientific computing", "items": ["scikit-learn", "NumPy", "OpenCV", "dlib", "PyTorch", "PyQt"] },
-    { "group": "Delivery & platforms", "items": ["Git", "Docker", "Jenkins", "Linux / Unix", "CI/CD", "Release automation", "Agile"] }
+    {
+      "group": "Programming",
+      "icon": "code",
+      "description": "The languages behind the work.",
+      "items": [
+        "Java",
+        "Python",
+        "SQL",
+        "JavaScript",
+        "Shell scripting",
+        "Dart"
+      ]
+    },
+    {
+      "group": "Application development",
+      "icon": "layers",
+      "description": "Interfaces, services, and integrations.",
+      "items": [
+        "Spring Boot",
+        "Flask",
+        "FastAPI",
+        "Flutter",
+        "React",
+        "REST APIs",
+        "Microservices"
+      ]
+    },
+    {
+      "group": "Data & databases",
+      "icon": "database",
+      "description": "Relational data and application storage.",
+      "items": [
+        "Oracle Database",
+        "PostgreSQL",
+        "MySQL"
+      ]
+    },
+    {
+      "group": "Machine learning & vision",
+      "icon": "spark",
+      "description": "From signals and images to useful models.",
+      "items": [
+        "scikit-learn",
+        "NumPy",
+        "OpenCV",
+        "dlib",
+        "PyTorch",
+        "PyQt"
+      ]
+    },
+    {
+      "group": "Delivery & platforms",
+      "icon": "terminal",
+      "description": "Build, automate, and support releases.",
+      "items": [
+        "Git",
+        "Docker",
+        "Jenkins",
+        "Linux / Unix",
+        "CI/CD",
+        "Release automation"
+      ]
+    },
+    {
+      "group": "Engineering practices",
+      "icon": "shield",
+      "description": "Structured delivery and application security.",
+      "items": [
+        "Agile",
+        "JWT",
+        "OAuth 2.0"
+      ]
+    }
   ],
   "recognition": [
-    { "title": "Ownership & Excellence", "org": "Amdocs", "text": "Recognized for dependable ownership, customer relationships, and technical contributions to CRM release delivery." },
-    { "title": "Special Recognition", "org": "Amdocs · January 2025 & August 2026", "text": "Recognized on two occasions for contributions, sustained commitment, and dedication to work." },
-    { "title": "Software engineering virtual programs", "org": "Forage · J.P. Morgan & Goldman Sachs · 2022", "text": "Completed practical simulations involving stock-price data integration, financial visualization, and password-security analysis." },
-    { "title": "Secure software development", "org": "Udemy / Amdocs · 2026", "text": "Completed training in secure coding principles, secure application development, and web application security." }
+    {
+      "title": "Ownership & Excellence",
+      "org": "Amdocs",
+      "text": "Recognized for dependable ownership, customer relationships, and technical contributions to CRM release delivery."
+    },
+    {
+      "title": "Special Recognition",
+      "org": "Amdocs · January 2025 & August 2026",
+      "text": "Recognized on two occasions for contributions, sustained commitment, and dedication to work."
+    },
+    {
+      "title": "Software engineering virtual programs",
+      "org": "Forage · J.P. Morgan & Goldman Sachs · 2022",
+      "text": "Completed practical simulations involving stock-price data integration, financial visualization, and password-security analysis."
+    },
+    {
+      "title": "Secure software development",
+      "org": "Udemy / Amdocs · 2026",
+      "text": "Completed training in secure coding principles, secure application development, and web application security."
+    }
   ],
   "community": [
-    { "title": "Event Management Head", "org": "VIRSA · Thapar Institute", "text": "Organized cultural festivals and talks, coordinated event planning, and led student teams." },
-    { "title": "Public Relations Head", "org": "OWASP Student Chapter", "text": "Supported hackathons, guest lectures, and webinars through publicity and sponsorship outreach." },
-    { "title": "Community service & student engagement", "org": "Volunteering and campus activities", "text": "Contributed to food distribution and pandemic relief activities, student outreach, and Model United Nations research and debate." }
-  ]
+    {
+      "title": "Event Management Head",
+      "org": "VIRSA · Thapar Institute",
+      "text": "Organized cultural festivals and talks, coordinated event planning, and led student teams."
+    },
+    {
+      "title": "Public Relations Head",
+      "org": "OWASP Student Chapter",
+      "text": "Supported hackathons, guest lectures, and webinars through publicity and sponsorship outreach."
+    },
+    {
+      "title": "Community service & student engagement",
+      "org": "Volunteering and campus activities",
+      "text": "Contributed to food distribution and pandemic relief activities, student outreach, and Model United Nations research and debate."
+    }
+  ],
+  "summary": "Software developer with enterprise telecom experience, demonstrating progressive responsibility, ownership and a structured approach to problem solving. Brings a methodical working style, accountability for delivery and experience collaborating across technical and business teams. Committed to advancing expertise through graduate study, connecting academic knowledge with practical experience to strengthen technical judgment and address complex engineering challenges.",
+  "resume": {
+    "file": "/assets/Jagjeevan_Singh_Soni_Resume.pdf",
+    "filename": "Jagjeevan_Resume_Master.pdf",
+    "sha256": "d2793a6d67d35f4945e1b902d9a6cec558b6882d2254d9214f0910b966e0ec59",
+    "pages": 3
+  }
 }
