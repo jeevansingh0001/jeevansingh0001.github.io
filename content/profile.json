@@ -15,10 +15,22 @@
     "current": "Software Developer",
     "previous": "Associate Software Engineer",
     "areas": [
-      { "title": "Enterprise telecom systems", "text": "Develop and enhance B2B CRM and order-management capabilities using Java, Spring Boot, REST APIs, and Oracle SQL. Collaborate across order orchestration, provisioning, product catalog, and billing integration." },
-      { "title": "Delivery & production ownership", "text": "Own CRM enhancements from requirements and development through testing, deployment, and issue resolution. Support recurring releases, investigate defects, and coordinate dependencies across technical and business teams." },
-      { "title": "Automation & modernization", "text": "Built a Python and Flask deployment-validation application for database checks, release tracking, and Excel and email reporting. Migrated application scripts from 32-bit to 64-bit Linux and supported integration validation and production cutover." },
-      { "title": "Developer tooling & notifications", "text": "Enhanced order-triggered customer notifications and template previews. Automated template conversion, Git check-ins, release packaging, and deployment imports; developed and adapted Java dependency-analysis, SQL rollback, and secure file-transfer utilities." }
+      {
+        "title": "Enterprise telecom systems",
+        "text": "Develop and enhance B2B CRM and order-management capabilities using Java, Spring Boot, REST APIs, and Oracle SQL. Collaborate across order orchestration, provisioning, product catalog, and billing integration."
+      },
+      {
+        "title": "Delivery & production ownership",
+        "text": "Own CRM enhancements from requirements and development through testing, deployment, and issue resolution. Support recurring releases, investigate defects, and coordinate dependencies across technical and business teams."
+      },
+      {
+        "title": "Automation & modernization",
+        "text": "Built a Python and Flask deployment-validation application for database checks, release tracking, and Excel and email reporting. Migrated application scripts from 32-bit to 64-bit Linux and supported integration validation and production cutover."
+      },
+      {
+        "title": "Developer tooling & notifications",
+        "text": "Enhanced order-triggered customer notifications and template previews. Automated template conversion, Git check-ins, release packaging, and deployment imports; developed and adapted Java dependency-analysis, SQL rollback, and secure file-transfer utilities."
+      }
     ]
   },
   "education": {
@@ -28,23 +40,107 @@
     "period": "July 2019 – June 2023",
     "grade": "7.71 / 10 CGPA",
     "focus": "Elective focus: Mathematics and Computing",
-    "courses": ["Data Structures & Algorithms", "Operating Systems", "Database Management Systems", "Software Engineering", "Computer Networks", "Machine Learning", "Probability & Statistics", "Matrix Computation", "Mathematical Modeling & Simulation", "Computational Number Theory"]
+    "courses": [
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Database Management Systems",
+      "Software Engineering",
+      "Computer Networks",
+      "Machine Learning",
+      "Probability & Statistics",
+      "Matrix Computation",
+      "Mathematical Modeling & Simulation",
+      "Computational Number Theory"
+    ]
   },
   "skills": [
-    { "group": "Languages", "items": ["Java", "Python", "SQL", "JavaScript", "Shell scripting", "Dart"] },
-    { "group": "Applications & data", "items": ["Spring Boot", "Flask", "FastAPI", "Flutter", "React", "REST APIs", "Oracle Database", "PostgreSQL", "MySQL"] },
-    { "group": "Scientific computing", "items": ["scikit-learn", "NumPy", "OpenCV", "dlib", "PyTorch", "PyQt"] },
-    { "group": "Delivery & platforms", "items": ["Git", "Docker", "Jenkins", "Linux / Unix", "CI/CD", "Release automation", "Agile"] }
+    {
+      "group": "Languages",
+      "items": [
+        "Java",
+        "Python",
+        "SQL",
+        "JavaScript",
+        "Shell scripting",
+        "Dart"
+      ]
+    },
+    {
+      "group": "Applications & data",
+      "items": [
+        "Spring Boot",
+        "Flask",
+        "FastAPI",
+        "Flutter",
+        "React",
+        "REST APIs",
+        "Oracle Database",
+        "PostgreSQL",
+        "MySQL"
+      ]
+    },
+    {
+      "group": "Scientific computing",
+      "items": [
+        "scikit-learn",
+        "NumPy",
+        "OpenCV",
+        "dlib",
+        "PyTorch",
+        "PyQt"
+      ]
+    },
+    {
+      "group": "Delivery & platforms",
+      "items": [
+        "Git",
+        "Docker",
+        "Jenkins",
+        "Linux / Unix",
+        "CI/CD",
+        "Release automation",
+        "Agile"
+      ]
+    }
   ],
   "recognition": [
-    { "title": "Ownership & Excellence", "org": "Amdocs", "text": "Recognized for dependable ownership, customer relationships, and technical contributions to CRM release delivery." },
-    { "title": "Special Recognition", "org": "Amdocs · January 2025 & August 2026", "text": "Recognized on two occasions for contributions, sustained commitment, and dedication to work." },
-    { "title": "Software engineering virtual programs", "org": "Forage · J.P. Morgan & Goldman Sachs · 2022", "text": "Completed practical simulations involving stock-price data integration, financial visualization, and password-security analysis." },
-    { "title": "Secure software development", "org": "Udemy / Amdocs · 2026", "text": "Completed training in secure coding principles, secure application development, and web application security." }
+    {
+      "title": "Ownership & Excellence",
+      "org": "Amdocs",
+      "text": "Recognized for dependable ownership, customer relationships, and technical contributions to CRM release delivery."
+    },
+    {
+      "title": "Special Recognition",
+      "org": "Amdocs · January 2025 & August 2026",
+      "text": "Recognized on two occasions for contributions, sustained commitment, and dedication to work."
+    },
+    {
+      "title": "Software engineering virtual programs",
+      "org": "Forage · J.P. Morgan & Goldman Sachs · 2022",
+      "text": "Completed practical simulations involving stock-price data integration, financial visualization, and password-security analysis."
+    },
+    {
+      "title": "Secure software development",
+      "org": "Udemy / Amdocs · 2026",
+      "text": "Completed training in secure coding principles, secure application development, and web application security."
+    }
   ],
   "community": [
-    { "title": "Event Management Head", "org": "VIRSA · Thapar Institute", "text": "Organized cultural festivals and talks, coordinated event planning, and led student teams." },
-    { "title": "Public Relations Head", "org": "OWASP Student Chapter", "text": "Supported hackathons, guest lectures, and webinars through publicity and sponsorship outreach." },
-    { "title": "Community service & student engagement", "org": "Volunteering and campus activities", "text": "Contributed to food distribution and pandemic relief activities, student outreach, and Model United Nations research and debate." }
-  ]
+    {
+      "title": "Event Management Head",
+      "org": "VIRSA · Thapar Institute",
+      "text": "Organized cultural festivals and talks, coordinated event planning, and led student teams."
+    },
+    {
+      "title": "Public Relations Head",
+      "org": "OWASP Student Chapter",
+      "text": "Supported hackathons, guest lectures, and webinars through publicity and sponsorship outreach."
+    },
+    {
+      "title": "Community service & student engagement",
+      "org": "Volunteering and campus activities",
+      "text": "Contributed to food distribution and pandemic relief activities, student outreach, and Model United Nations research and debate."
+    }
+  ],
+  "photo": "/assets/jagjeevan-profile.jpeg"
 }

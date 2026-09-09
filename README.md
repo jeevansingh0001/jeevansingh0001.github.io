@@ -8,7 +8,7 @@ Personal portfolio published at https://jeevansingh0001.github.io/.
 - `content/projects.json`: project summaries and complete case studies.
 - `public/styles.css`: visual styling and responsive layouts.
 - `scripts/build.mjs`: page templates and static build.
-- `public/assets/Jagjeevan_Singh_Soni_Resume.pdf`: public résumé download.
+- `public/assets/Jagjeevan_Singh_Soni_Resume.pdf`: public résumé preview.
 
 Requires Node.js 20 or newer. There are no npm package dependencies.
 
@@ -48,4 +48,12 @@ Inspect every page of the resulting PDF before committing it. The PDF is committ
 
 Keep private source documents, employment letters, account credentials, and reference material outside this repository. `.local/` is ignored and must never be published. Only `dist/` is deployed. Case studies distinguish prototypes, simulations, and offline evaluations from production deployments.
 
-No third-party analytics, contact backend, tracking scripts, remote fonts, or runtime JavaScript are required for the website.
+No third-party analytics, contact backend, tracking scripts, or remote fonts are used. Small local scripts handle the theme preference, scroll header, and ribbon state.
+
+## Profile photo
+
+Add your portrait to `public/assets/` and set `"photo": "/assets/your-photo.jpg"` in `content/profile.json`. It is cropped into the circular profile frame and reused in the mobile header. Until then, a neutral silhouette is shown.
+
+The overview uses a scrollable panel on desktop and stacked cards on mobile. The default navy and lime theme can be switched to light using either Theme button; the preference is saved locally.
+
+Logo sources and licenses are recorded in `public/assets/credits.txt`. The profile photo is `public/assets/jagjeevan-profile.jpeg`.

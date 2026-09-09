@@ -1,0 +1,16 @@
+Logo asset credits
+
+amdocs-logo.svg
+Amdocs 2017 Brand Mark by Jpiccin, Wikimedia Commons.
+Source: https://commons.wikimedia.org/wiki/File:Amdocs-2017-brand-mark.svg
+License: Creative Commons Attribution-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-sa/4.0/
+The SVG is used unchanged; the website places it inside a circular CSS frame.
+
+thapar-logo.png
+Source: https://www.thapar.edu/images/logo.png
+Thapar Institute of Engineering and Technology. Logo used to identify the institution.
+
+Organization logos identify employment and education; they do not imply endorsement.
+
+ amdocs-symbol.svg: symbol-only viewBox crop of amdocs-logo.svg by Jpiccin, under the same CC BY-SA 4.0 license and source noted above. Original vector paths and colors retained.
