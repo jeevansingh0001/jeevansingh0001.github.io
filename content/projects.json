@@ -4,92 +4,266 @@
     "name": "Shabad Shazam",
     "category": "Audio recognition",
     "type": "Personal project",
-    "status": "Prototype · In development",
-    "summary": "Recognizing indexed Gurbani recordings from a short audio sample, with hymn and performer details in a mobile interface.",
-    "tech": ["Flutter", "Dart", "Python", "FastAPI", "PostgreSQL", "Docker"],
+    "summary": "Record a short audio clip on a phone. The application compares it with an indexed Gurbani catalog and returns the matching hymn, performer, and listening links.",
+    "tech": [
+      "Flutter",
+      "Dart",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ],
     "accent": "lime",
     "figureLabel": "Recognition pipeline",
-    "flow": ["Audio sample", "Spectral peaks", "Fingerprint matching", "Recording details"],
+    "flow": [
+      "Audio sample",
+      "Spectral peaks",
+      "Fingerprint matching",
+      "Recording details"
+    ],
     "question": "How can a short audio recording lead a listener to the corresponding Gurbani hymn and performer?",
-    "context": "Shabad Shazam is a mobile application prototype for identifying recordings from an indexed catalog of Gurbani, the sacred hymns of the Sikh tradition. The application connects microphone capture to an acoustic-fingerprinting service and presents recording metadata and external listening links.",
+    "context": "Shabad Shazam is a mobile application for identifying recordings from an indexed catalog of Gurbani, the sacred hymns of the Sikh tradition. The application connects microphone capture to an acoustic-fingerprinting service and presents recording metadata and external listening links.",
     "role": "Personal project spanning the Flutter interface, recognition-service integration, audio-fingerprinting pipeline, metadata ingestion, and local backend setup.",
     "work": [
-      { "title": "Fingerprinting the recording", "text": "Spectral analysis identifies prominent peaks in the audio. Peak-pair hashing converts those features into compact fingerprints, which are matched against a PostgreSQL catalog using time alignment." },
-      { "title": "Connecting recognition to the listener", "text": "A Flutter interface captures microphone audio and sends it to FastAPI services. Results return hymn and performer information, alongside local search history and external listening links." },
-      { "title": "Building the catalog workflow", "text": "A CSV-driven ingestion workflow generates fingerprints and maintains recording metadata. Docker Compose provides a reproducible local environment for the backend and database." }
+      {
+        "title": "Fingerprinting the recording",
+        "text": "Spectral analysis identifies prominent peaks in the audio. Peak-pair hashing converts those features into compact fingerprints, which are matched against a PostgreSQL catalog using time alignment."
+      },
+      {
+        "title": "Connecting recognition to the listener",
+        "text": "A Flutter interface captures microphone audio and sends it to FastAPI services. Results return hymn and performer information, alongside local search history and external listening links."
+      },
+      {
+        "title": "Building the catalog workflow",
+        "text": "A CSV-driven ingestion workflow generates fingerprints and maintains recording metadata. Docker Compose provides a reproducible local environment for the backend and database."
+      }
     ],
-    "outcome": "The prototype brings audio capture, catalog matching, and recording information into one application flow.",
+    "outcome": "The application brings audio capture, catalog matching, and recording information into one application flow.",
     "limits": "Recognition is limited to recordings present in the indexed catalog. Identification of arbitrary live performances, store publication, and production-scale accuracy or latency are not established.",
-    "takeaway": "The catalog and ingestion workflow are as important as the matching algorithm: recognition depends on having the right reference recordings and reliable metadata."
+    "takeaway": "The catalog and ingestion workflow are as important as the matching algorithm: recognition depends on having the right reference recordings and reliable metadata.",
+    "icon": "🎧",
+    "subtitle": "Identify the Gurbani recording you are hearing.",
+    "plainRole": "Built the mobile-to-backend recognition flow, audio fingerprinting, and catalog-ingestion workflow.",
+    "plainResult": "A mobile application that connects microphone capture to recording recognition and local listening history.",
+    "input": "Short audio sample",
+    "output": "Indexed recording, hymn & performer",
+    "plainLimit": "Matches recordings already in the catalog; recognition of arbitrary live performances is not established.",
+    "journey": [
+      {
+        "icon": "🎙️",
+        "title": "Record a short clip",
+        "text": "Capture audio in the Flutter app."
+      },
+      {
+        "icon": "🔎",
+        "title": "Match the recording",
+        "text": "Compare acoustic fingerprints with the indexed catalog."
+      },
+      {
+        "icon": "🎵",
+        "title": "Find the hymn",
+        "text": "See performer details and external listening links."
+      }
+    ]
   },
   {
     "slug": "neuro-data-lab",
     "name": "Neuro Data Lab",
     "category": "Brain–computer interfaces",
-    "type": "Capstone Project II · Team project",
-    "status": "Offline experimental evaluation",
-    "summary": "A PyQt toolbox for EEG preparation and movement classification, exploring a foundation for brain-controlled interaction.",
-    "tech": ["Python", "PyQt", "scikit-learn", "EMOTIV EPOC X"],
+    "type": "Academic · Capstone II · Team project",
+    "summary": "Participants watched forward and backward movement in a graphical simulation while wearing an EEG headset. A desktop toolbox prepared the recorded signals and compared five classifiers.",
+    "tech": [
+      "Python",
+      "PyQt",
+      "scikit-learn",
+      "EMOTIV EPOC X"
+    ],
     "accent": "blue",
     "figureLabel": "Experimental workflow",
-    "flow": ["Movement visualizations", "14-channel EEG", "ICA & classifiers", "Offline evaluation"],
+    "flow": [
+      "Movement visualizations",
+      "14-channel EEG",
+      "ICA & classifiers",
+      "Offline evaluation"
+    ],
     "question": "Can EEG recorded during forward and backward movement visualizations be classified into directional categories?",
     "context": "The team investigated EEG-based interaction by collecting recordings while participants viewed movement visualizations in a first-person graphical simulation. Game control motivated the work; the completed scope focused on data collection, preparation, and offline classification.",
     "role": "Collaborated with the capstone team on the experimental workflow and development of a PyQt toolbox for EEG preparation, Independent Component Analysis, and classifier evaluation.",
     "work": [
-      { "title": "Collecting labeled signals", "text": "Multiple participants wore a 14-channel EEG headset while viewing forward and backward movement visualizations. Timed directional cues supplied labels for the collected data." },
-      { "title": "Making analysis accessible", "text": "A PyQt toolbox supported EEG data preparation and Independent Component Analysis, bringing the preparation and modeling stages into a graphical workflow." },
-      { "title": "Comparing classification approaches", "text": "Five machine-learning classifiers were trained and evaluated. Extra Trees reached 95.45% accuracy in the project's offline evaluation." }
+      {
+        "title": "Collecting labeled signals",
+        "text": "Multiple participants wore an EMOTIV EPOC X headset while watching forward and backward movement visualizations. The 14 EEG channels recorded electrical activity from the scalp, and timed directional cues supplied labels for the dataset."
+      },
+      {
+        "title": "Making analysis accessible",
+        "text": "The PyQt interface supported data preparation and Independent Component Analysis, a signal-processing method used to separate components in the recordings. It brought the preparation and modeling stages into one graphical workflow."
+      },
+      {
+        "title": "Comparing classification approaches",
+        "text": "The team trained and compared five machine-learning classifiers. Extra Trees, an ensemble of randomized decision trees, achieved 95.45% accuracy in the project’s offline evaluation."
+      }
     ],
-    "metric": { "value": "95.45%", "label": "Extra Trees · offline evaluation accuracy" },
+    "metric": {
+      "value": "95.45%",
+      "label": "Extra Trees · offline evaluation accuracy"
+    },
     "outcome": "The project produced a graphical analysis toolbox and an offline classification result that provides a starting point for mapping EEG signals to directional commands.",
     "limits": "The reported accuracy describes the project's offline evaluation. It does not establish performance on unseen participants or sessions, and live EEG-driven game control was future scope.",
-    "takeaway": "Evaluation design determines what a model result can support. Subject- and session-independent testing would be an important next step toward practical interaction."
+    "takeaway": "Evaluation design determines what a model result can support. Subject- and session-independent testing would be an important next step toward practical interaction.",
+    "icon": "🧠",
+    "subtitle": "Classify brain signals recorded during movement visualizations.",
+    "plainRole": "Collaborated on the EEG experiment and the PyQt toolbox for signal preparation and model evaluation.",
+    "plainResult": "Extra Trees reached 95.45% accuracy in the project’s offline evaluation.",
+    "input": "Labeled 14-channel EEG recordings",
+    "output": "Forward / backward classification",
+    "plainLimit": "95.45% is an offline result, not demonstrated live game control or performance on unseen participants.",
+    "journey": [
+      {
+        "icon": "🖥️",
+        "title": "Watch movement cues",
+        "text": "Participants view forward and backward movement."
+      },
+      {
+        "icon": "🧠",
+        "title": "Record brain signals",
+        "text": "Collect labeled data with a 14-channel EEG headset."
+      },
+      {
+        "icon": "📊",
+        "title": "Compare classifiers",
+        "text": "Prepare the recordings and evaluate five models offline."
+      }
+    ]
   },
   {
     "slug": "drivesafe",
     "name": "DriveSafe",
     "category": "Computer vision & control",
-    "type": "Capstone Project I · Team project",
-    "status": "Monitoring prototype & control simulation",
-    "summary": "Webcam-based drowsiness monitoring with timed alerts, alongside an Arduino safety-response simulation.",
-    "tech": ["Python", "OpenCV", "dlib", "Arduino", "Tinkercad"],
+    "type": "Academic · Capstone I · Team project",
+    "summary": "A webcam tracks eye and mouth movements. When signs of drowsiness persist, the application raises visual and audible alerts. A separate Arduino simulation explores obstacle-aware slowing and stopping.",
+    "tech": [
+      "Python",
+      "OpenCV",
+      "dlib",
+      "Arduino",
+      "Tinkercad"
+    ],
     "accent": "orange",
     "figureLabel": "Driver-monitoring pipeline",
-    "flow": ["Webcam frames", "68 facial landmarks", "Timed detection", "Visual & audible alerts"],
+    "flow": [
+      "Webcam frames",
+      "68 facial landmarks",
+      "Timed detection",
+      "Visual & audible alerts"
+    ],
     "question": "How can sustained signs of driver drowsiness be distinguished from brief eye and mouth movements?",
-    "context": "DriveSafe combines a real-time webcam-monitoring prototype with a separately tested vehicle-control simulation. The vision component looks for prolonged eye closure, yawning, and indicators of distraction; the simulation explores obstacle-aware motor responses.",
+    "context": "DriveSafe combines a real-time webcam-monitoring application with a separately tested vehicle-control simulation. The vision component looks for prolonged eye closure, yawning, and indicators of distraction; the simulation explores obstacle-aware motor responses.",
     "role": "Contributed across detection, sensing, motor-control simulation, testing, integration, and documentation as part of a capstone team.",
     "work": [
-      { "title": "Measuring facial movement", "text": "OpenCV handles video capture and image preprocessing, while dlib supplies 68-point facial landmarks. Separate normalized eye-opening and mouth-opening measurements support drowsiness detection." },
-      { "title": "Responding to sustained patterns", "text": "Time-based detection logic distinguishes sustained signs of drowsiness from short facial movements. Visual and audible warnings escalate when the detected condition persists." },
-      { "title": "Simulating a safety response", "text": "An Arduino-based control system was developed and tested in Tinkercad using four ultrasonic sensors, motor control, and staged deceleration to explore obstacle-aware responses." }
+      {
+        "title": "Measuring facial movement",
+        "text": "OpenCV handles video capture and image preprocessing, while dlib supplies 68-point facial landmarks. Separate normalized eye-opening and mouth-opening measurements support drowsiness detection."
+      },
+      {
+        "title": "Responding to sustained patterns",
+        "text": "Time-based detection logic distinguishes sustained signs of drowsiness from short facial movements. Visual and audible warnings escalate when the detected condition persists."
+      },
+      {
+        "title": "Simulating a safety response",
+        "text": "An Arduino-based control system was developed and tested in Tinkercad using four ultrasonic sensors, motor control, and staged deceleration to explore obstacle-aware responses."
+      }
     ],
-    "outcome": "The team developed a driver-monitoring prototype with escalating alerts and a simulated obstacle-aware motor-control workflow.",
+    "outcome": "The team developed a driver-monitoring application with escalating alerts and a simulated obstacle-aware motor-control workflow.",
     "limits": "The vehicle-control component was simulated in Tinkercad. Road deployment and a demonstrated automated connection between the vision detector and control simulation are outside the established scope.",
-    "takeaway": "Timing and state transitions matter alongside detection: a warning system must account for brief movements, sustained conditions, and recovery."
+    "takeaway": "Timing and state transitions matter alongside detection: a warning system must account for brief movements, sustained conditions, and recovery.",
+    "icon": "🚗",
+    "subtitle": "Detect sustained drowsiness and warn the driver.",
+    "plainRole": "Contributed to facial-landmark detection, alerts, sensing, motor-control simulation, and testing within the capstone team.",
+    "plainResult": "A webcam-monitoring application, plus a separately tested safety-control simulation in Tinkercad.",
+    "input": "Webcam video of the driver",
+    "output": "Timed visual & audible warnings",
+    "plainLimit": "The Arduino response was simulated separately; road deployment and a direct detector-to-control link are not established.",
+    "journey": [
+      {
+        "icon": "📷",
+        "title": "Observe the driver",
+        "text": "Locate 68 facial landmarks in webcam frames."
+      },
+      {
+        "icon": "⏱️",
+        "title": "Check sustained signs",
+        "text": "Track eye closure and mouth opening over time."
+      },
+      {
+        "icon": "🔔",
+        "title": "Raise an alert",
+        "text": "Escalate visual and audible warnings."
+      }
+    ]
   },
   {
     "slug": "med-e-care",
     "name": "MED-e-CARE",
     "category": "Full-stack development",
-    "type": "Software Engineering · Team project",
-    "status": "Academic web application",
-    "summary": "A pharmacy-management application connecting customer ordering, inventory administration, and an NGO ordering workflow.",
-    "tech": ["HTML", "Python", "SQL", "UML"],
+    "type": "Academic · Software Engineering · Team project",
+    "summary": "Customers can create an account, browse medicines, place orders, and review order history. Administrators manage inventory and sales, while a separate NGO workflow uses expiry-based medicine availability.",
+    "tech": [
+      "HTML",
+      "Python",
+      "SQL",
+      "UML"
+    ],
     "accent": "pink",
     "figureLabel": "Application structure",
-    "flow": ["Customer & admin UI", "Python application", "SQL data model", "Orders & inventory"],
+    "flow": [
+      "Customer & admin UI",
+      "Python application",
+      "SQL data model",
+      "Orders & inventory"
+    ],
     "question": "How can customer ordering, pharmacy inventory, and NGO medicine availability be represented in one application?",
     "context": "MED-e-CARE was developed as an end-to-end academic pharmacy-management web application during the COVID-19 pandemic. An HTML interface connected to Python backend logic and a relational database.",
     "role": "Co-developed customer and administrative workflows, the NGO ordering flow, and the supporting requirements and relational-data design.",
     "work": [
-      { "title": "Supporting the customer journey", "text": "The application covered registration, login, account management, medicine selection, order placement, and order history." },
-      { "title": "Managing pharmacy operations", "text": "Administrative functions supported inventory updates and sales tracking. Customer, stock, and order information were represented in a SQL database." },
-      { "title": "Modeling a distinct ordering workflow", "text": "An NGO ordering flow used expiry-based medicine availability. UML models translated application requirements into relationships and interactions among users, inventory, and orders." }
+      {
+        "title": "Supporting the customer journey",
+        "text": "The application covered registration, login, account management, medicine selection, order placement, and order history."
+      },
+      {
+        "title": "Managing pharmacy operations",
+        "text": "Administrative functions supported inventory updates and sales tracking. Customer, stock, and order information were represented in a SQL database."
+      },
+      {
+        "title": "Modeling a distinct ordering workflow",
+        "text": "An NGO ordering flow used expiry-based medicine availability. UML models translated application requirements into relationships and interactions among users, inventory, and orders."
+      }
     ],
     "outcome": "The project brought customer ordering, inventory administration, and NGO availability into a connected application with an explicit relational model.",
     "limits": "This was an academic application. Production adoption, payment-gateway integration, and operational usage metrics are not established.",
-    "takeaway": "Clear requirements and a coherent data model make it easier to connect different user roles without treating each workflow as a separate application."
+    "takeaway": "Clear requirements and a coherent data model make it easier to connect different user roles without treating each workflow as a separate application.",
+    "icon": "💊",
+    "subtitle": "Connect medicine ordering with pharmacy inventory.",
+    "plainRole": "Co-developed customer and admin workflows, the NGO ordering flow, and the SQL data model.",
+    "plainResult": "An academic web application connecting an HTML interface, Python backend, and relational database.",
+    "input": "Customer orders & inventory updates",
+    "output": "Order history, stock & sales records",
+    "plainLimit": "An academic application; payment-gateway integration and production usage are not established.",
+    "journey": [
+      {
+        "icon": "🛒",
+        "title": "Choose medicines",
+        "text": "Customers register, browse, and place an order."
+      },
+      {
+        "icon": "🗃️",
+        "title": "Manage the inventory",
+        "text": "Administrators update stock and track sales."
+      },
+      {
+        "icon": "🤝",
+        "title": "Support NGO orders",
+        "text": "Apply expiry-based medicine availability."
+      }
+    ]
   }
 ]
