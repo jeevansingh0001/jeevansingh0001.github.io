@@ -6,7 +6,9 @@
   "github": "https://github.com/jeevansingh0001",
   "linkedin": "https://www.linkedin.com/in/jagjeevan-singh-006467202/",
   "url": "https://jeevansingh0001.github.io",
-  "intro": "I build enterprise software and explore how signals become useful applications.",
+  "intro": "Software developer with a structured approach to problem solving, a strong sense of ownership, and a commitment to continuous learning.",
+  "overviewSummary": "Combines a foundation in computer engineering with professional experience in software delivery and cross-functional collaboration. Committed to advancing technical expertise through further study and applying sound engineering judgment to complex challenges.",
+  "overviewSkills": ["Java", "Spring Boot", "Python", "REST APIs", "Oracle SQL", "Microservices", "Git", "CI/CD"],
   "about": "At Amdocs, I work on enterprise telecom systems, from CRM and order management to release automation and production support. My projects extend that engineering practice into audio recognition, computer vision, and brain–computer interfaces.",
   "direction": "I am interested in deepening my technical foundations through graduate study, connecting practical software delivery with the study of computing systems and applied machine learning.",
   "experience": {

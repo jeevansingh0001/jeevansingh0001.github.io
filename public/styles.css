@@ -177,3 +177,121 @@ html:has(.home-page)::-webkit-scrollbar,
     height: 54px;
   }
 }
+
+/* A centered profile and a quiet, highlighted progression through the overview. */
+.home-page { --overview-accent: #d5ee89; padding-bottom: 0; }
+.profile-block { display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0; }
+.profile-block .portrait-frame { width: clamp(180px, 26svh, 220px); height: clamp(180px, 26svh, 220px); margin-bottom: 24px; flex-shrink: 0; }
+.profile-block .role-identity { justify-content: center; text-align: left; }
+.profile-block .profile-location { justify-content: center; margin-top: 12px; }
+.profile-block .profile-actions { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(100%, 350px); max-width: none; gap: 9px; margin-top: 24px; }
+.profile-block .action { grid-column: span 2; padding-inline: 8px; }
+.profile-block .action-resume, .profile-block .theme-toggle { grid-column: span 3; }
+.overview-panel { border-color: #d5ee8929; background: radial-gradient(ellipse at 100% 0, #d5ee8909, transparent 55%), linear-gradient(145deg, #ffffff0d, #ffffff03); }
+.panel-intro { position: relative; padding: 0 0 26px; }
+.panel-intro > .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--overview-accent); margin-bottom: 14px; }
+.panel-intro > .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 16px #d5ee8940; }
+.panel-intro .intro-statement { font-size: clamp(1.45rem, 2.1vw, 2rem); line-height: 1.35; font-weight: 500; text-wrap: pretty; max-width: 700px; }
+.panel-intro > p:last-child { max-width: 650px; margin-top: 16px; font-size: .9rem; line-height: 1.8; }
+.overview-card { transition: border-color .25s ease, background .25s ease, box-shadow .25s ease; }
+.overview-card:hover { border-color: #d5ee8945; box-shadow: 0 8px 30px #0000000d; }
+.journey-card { background: linear-gradient(125deg, #d5ee8909, #ffffff03); }
+.journey-timeline { --badge-size: 56px; --journey-gap: 24px; --journey-inset: 20px; list-style: none; padding: 0 0 0 var(--journey-inset); position: relative; }
+.journey-current::before { content: ''; position: absolute; left: calc(3px - var(--journey-inset)); top: 7px; bottom: calc(-1 * (var(--journey-gap) + 6px + var(--badge-size) / 2)); width: 1px; background: linear-gradient(to top, #d5ee8935, var(--overview-accent)); }
+.journey-timeline::after { content: ''; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; border-top: 1px solid var(--overview-accent); border-left: 1px solid var(--overview-accent); transform: rotate(45deg); }
+.journey-step { display: flex; align-items: flex-start; gap: 16px; position: relative; padding: 6px 0; }
+.journey-step + .journey-step { margin-top: var(--journey-gap); }
+.journey-marker { position: absolute; left: calc(-1 * var(--journey-inset)); top: calc(6px + var(--badge-size) / 2 - 3.5px); width: 7px; height: 7px; border-radius: 50%; background: var(--overview-accent); }
+.journey-current .journey-marker { box-shadow: 0 0 0 5px #d5ee8912, 0 0 18px #d5ee8920; }
+.journey-step .brand-frame { flex: 0 0 var(--badge-size); width: var(--badge-size); height: var(--badge-size); padding: 4px; }
+/* Focus the original Thapar emblem; its full institute name is beside the badge. */
+.brand-symbol-window { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 50%; background: #fff; }
+.journey-step .brand-thapar img { position: absolute; top: 15%; left: 50%; width: 360%; max-width: none; height: auto; padding: 0; border-radius: 0; background: transparent; transform: translateX(-50%); }
+.journey-copy { flex: 1; min-width: 0; padding-top: 4px; }
+.journey-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 5px 12px; }
+.journey-heading h3 { font-size: .98rem; font-weight: 550; line-height: 1.45; letter-spacing: -.015em; }
+.journey-date { font-size: .7rem; white-space: nowrap; color: var(--home-muted); }
+.journey-current .journey-date { color: var(--overview-accent); }
+.journey-copy p { font-size: .8rem; line-height: 1.65; margin-top: 4px; }
+.technologies-card .card-label { margin-bottom: 16px; }
+.card-label h3 { font-size: 1rem; font-weight: 500; }
+.panel-symbol { color: var(--overview-accent); }
+.technologies-card .skill-pills { gap: 8px; margin-top: 0; }
+.technologies-card .skill-pills li { padding: 7px 12px; border-radius: 9px; background: #ffffff06; }
+.bottom-ribbon a { transition: background .25s ease, color .25s ease, box-shadow .25s ease; }
+.home-page { --motion-ease: cubic-bezier(.2, .65, .35, 1); }
+/* One short entrance per panel: no exit wait, blur, or nested card animations. */
+.overview-panel { backdrop-filter: none; }
+.panel-view.is-active { animation: panel-arrive .24s var(--motion-ease); }
+.panel-view.is-active .journey-current::before { transform-origin: bottom; animation: timeline-arrive .4s ease-out; }
+.bottom-ribbon.ribbon-ready::before { content: ''; position: absolute; top: var(--indicator-y); left: 0; width: var(--indicator-width); height: var(--indicator-height); transform: translateX(var(--indicator-x)); border-radius: 14px; background: color-mix(in srgb, var(--overview-accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--overview-accent) 25%, transparent); transition: transform .28s var(--motion-ease), width .28s var(--motion-ease), height .2s; pointer-events: none; }
+.bottom-ribbon.ribbon-ready a { position: relative; z-index: 1; }
+html[data-theme] .bottom-ribbon.ribbon-ready a[aria-current] { background: transparent; box-shadow: none; }
+.profile-block > .portrait-frame { animation: profile-arrive .6s var(--motion-ease) both; }
+.profile-block > :not(.portrait-frame) { animation: profile-arrive .45s var(--motion-ease) .08s both; }
+@keyframes panel-arrive { from { opacity: .55; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes timeline-arrive { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes profile-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* Soft mint, powder blue, and lavender accents within the original navy palette. */
+html:not([data-palette]) .home-page { --pastel-mint: #b9dfd1; --pastel-blue: #bdcee7; --pastel-lavender: #d3c6e4; }
+html:not([data-palette]) .journey-card { background: linear-gradient(125deg, #b9dfd110, #ffffff03); border-color: #b9dfd12c; }
+html:not([data-palette]) .technologies-card { background: linear-gradient(125deg, #bdcee710, #ffffff03); border-color: #bdcee72c; }
+html:not([data-palette]) .testimonial-placeholder { background: linear-gradient(125deg, #d3c6e40c, #ffffff02); border-color: #d3c6e432; }
+html:not([data-palette]) .technologies-card .card-symbol { color: var(--pastel-blue); }
+html:not([data-palette]) .testimonial-placeholder .card-symbol { color: var(--pastel-lavender); }
+html:not([data-palette]) .technologies-card .skill-pills li { background: #bdcee70a; border-color: #bdcee725; }
+html[data-theme="light"]:not([data-palette]) .technologies-card .card-symbol { color: #536d91; }
+html[data-theme="light"]:not([data-palette]) .testimonial-placeholder .card-symbol { color: #78638d; }
+html[data-theme="light"]:not([data-palette]) .journey-card { background: linear-gradient(125deg, #b9dfd13d, #ffffff70); border-color: #698a7e40; }
+html[data-theme="light"]:not([data-palette]) .technologies-card { background: linear-gradient(125deg, #bdcee73d, #ffffff70); border-color: #738aa640; }
+html[data-theme="light"]:not([data-palette]) .testimonial-placeholder { background: linear-gradient(125deg, #d3c6e433, #ffffff70); border-color: #8b799e40; }
+html[data-theme="light"] .home-page { --overview-accent: #536d25; }
+html[data-theme="light"] .overview-panel { border-color: #536d2533; }
+html[data-theme="light"] .overview-card:hover { border-color: #536d2555; }
+
+@media (min-width: 761px) {
+  .landing { height: 100svh; min-height: 620px; padding: 28px 40px 108px; }
+  .landing-grid { height: 100%; gap: clamp(28px, 4vw, 64px); }
+  .profile-block h1 { font-size: clamp(2.6rem, 4vw, 4.3rem); }
+  .overview-panel { height: 100%; min-height: 0; max-height: 900px; padding: clamp(24px, 2.6vw, 40px); overscroll-behavior-y: contain; }
+  .bottom-ribbon { bottom: 20px; }
+}
+@media (min-width: 761px) and (max-height: 750px) {
+  .profile-block .portrait-frame { width: 160px; height: 160px; margin-bottom: 16px; }
+  .profile-block h1 { font-size: clamp(2.6rem, 3.7vw, 3.4rem); }
+  .profile-block .role-identity { margin-top: 18px; }
+  .profile-block .profile-actions { margin-top: 18px; }
+}
+@media (max-width: 760px) {
+  /* Main scrolls above the dock, so the ribbon never paints over its content. */
+  .home-page { --mobile-dock-height: calc(82px + env(safe-area-inset-bottom, 0px)); height: 100svh; overflow: hidden; }
+  .home-page main { height: calc(100svh - var(--mobile-dock-height)); overflow-y: auto; scrollbar-width: none; scroll-behavior: smooth; scroll-padding-top: 82px; }
+  .home-page main::-webkit-scrollbar { display: none; }
+  .landing { min-height: 0; padding: 0 18px 28px; }
+  .landing-grid { display: flex; flex-direction: column; gap: 32px; }
+  .profile-block { width: 100%; min-height: calc(100svh - var(--mobile-dock-height)); justify-content: center; padding: 32px 0 36px; }
+  .profile-block .portrait-frame { width: clamp(148px, 23svh, 184px); height: clamp(148px, 23svh, 184px); margin-bottom: 22px; }
+  .profile-block h1 { font-size: clamp(2.6rem, 12vw, 3.35rem); }
+  .profile-greeting { margin-bottom: 12px; }
+  .profile-block .role-identity { margin-top: 22px; gap: 10px; }
+  .profile-block .role-identity .current-role { font-size: .87rem; }
+  .profile-block .role-identity .brand-frame { flex-basis: 48px; width: 48px; height: 48px; }
+  .profile-block .profile-location { margin-top: 12px; }
+  .profile-block .profile-actions { width: min(100%, 330px); margin-top: 24px; gap: 9px; }
+  .profile-block .action { min-height: 46px; font-size: .76rem; gap: 7px; }
+  .overview-panel { width: 100%; padding: 24px 18px; scroll-margin-top: 0; overflow: hidden; border-radius: 24px; }
+  .panel-intro .intro-statement { font-size: 1.55rem; line-height: 1.4; }
+  .panel-intro > p:last-child { font-size: .85rem; }
+  .overview-card { padding: 18px 15px; }
+  .journey-timeline { --badge-size: 42px; --journey-gap: 22px; --journey-inset: 17px; }
+  .journey-step { gap: 10px; align-items: flex-start; }
+  .journey-step .brand-frame { padding: 3px; }
+  .journey-heading { gap: 4px; grid-template-columns: 1fr; }
+  .journey-heading h3 { font-size: .86rem; }
+  .journey-copy p { font-size: .76rem; }
+  .technologies-card .skill-pills { gap: 7px; }
+  .technologies-card .skill-pills li { font-size: .74rem; padding: 6px 10px; }
+  .bottom-ribbon { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: max-content; max-width: calc(100% - 24px); margin: 0; gap: 2px; padding: 6px; background: #223241; border-radius: 19px; }
+  .bottom-ribbon a { font-size: .72rem; padding: 10px 12px; flex-shrink: 0; }
+  html[data-theme="light"] .bottom-ribbon { background: #edf2f3; }
+}

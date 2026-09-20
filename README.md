@@ -20,6 +20,9 @@ npm run dev
 
 Open http://127.0.0.1:4173. Rebuild after editing content or styles, then refresh the preview.
 
+For local palette comparisons, open http://127.0.0.1:4173/theme-options/.
+These review routes are served by `scripts/previews/themes.mjs` and are excluded from the static build. Each palette has separate light and dark previews; preview toggles do not change the saved theme for the main portfolio.
+
 ## Publish updates
 
 The repository's GitHub Pages source must be **GitHub Actions** under Settings → Pages. Pushing to `main` runs the Publish portfolio workflow, validates all pages, and deploys `dist/`. Check the Actions tab for completion before treating an update as live.

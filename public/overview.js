@@ -10,13 +10,16 @@ function syncTheme() {
 themeButtons.forEach(button => button.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
   document.documentElement.dataset.theme = theme;
-  try { localStorage.setItem('portfolio-theme', theme); } catch {}
+  try { if (!document.documentElement.dataset.palette) localStorage.setItem('portfolio-theme', theme); } catch {}
   syncTheme();
 }));
 syncTheme();
 const header = document.querySelector('.scroll-header');
 const profile = document.querySelector('.portrait-frame');
 const mobile = matchMedia('(max-width: 760px)');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const contentPanel = document.querySelector('.overview-panel');
+const main = document.querySelector('main');
 function syncHeader() {
   const visible = mobile.matches && profile.getBoundingClientRect().bottom < 72;
   header.classList.toggle('is-visible', visible);
@@ -24,8 +27,20 @@ function syncHeader() {
 }
 const links = [...document.querySelectorAll('.bottom-ribbon a[data-panel-target]')];
 const panels = [...document.querySelectorAll('.overview-panel .panel-view')];
+const ribbon = document.querySelector('.bottom-ribbon');
+function syncRibbon() {
+  const active = links.find(link => link.hasAttribute('aria-current'));
+  if (!active) return;
+  ribbon.style.setProperty('--indicator-x', `${active.offsetLeft}px`);
+  ribbon.style.setProperty('--indicator-y', `${active.offsetTop}px`);
+  ribbon.style.setProperty('--indicator-width', `${active.offsetWidth}px`);
+  ribbon.style.setProperty('--indicator-height', `${active.offsetHeight}px`);
+  ribbon.classList.add('ribbon-ready');
+}
+
 function selectPanel(name, move = false) {
   const target = panels.find(panel => panel.dataset.panel === name) || panels[0];
+  const changed = !target.classList.contains('is-active');
   panels.forEach(panel => {
     const active = panel === target;
     panel.classList.toggle('is-active', active);
@@ -35,8 +50,10 @@ function selectPanel(name, move = false) {
     if (link.dataset.panelTarget === target.dataset.panel) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
-  if (move && window.matchMedia('(max-width: 760px)').matches) {
-    document.querySelector('.overview-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  syncRibbon();
+  if (changed) contentPanel.scrollTop = 0;
+  if (move && mobile.matches) {
+    contentPanel.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
   }
 }
 links.forEach(link => link.addEventListener('click', event => {
@@ -51,5 +68,6 @@ function update() {
   requestAnimationFrame(() => { syncHeader(); scheduled = false; });
 }
 addEventListener('scroll', update, { passive: true });
-addEventListener('resize', update);
+main.addEventListener('scroll', update, { passive: true });
+addEventListener('resize', () => { update(); syncRibbon(); });
 update();
