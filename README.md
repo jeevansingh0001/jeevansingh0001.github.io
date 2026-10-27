@@ -8,7 +8,7 @@ Personal portfolio published at https://jeevansingh0001.github.io/.
 - `content/projects.json`: project summaries and complete case studies.
 - `public/styles.css`: visual styling and responsive layouts.
 - `scripts/build.mjs`: page templates and static build.
-- `public/assets/Jagjeevan_Singh_Soni_Resume.pdf`: public résumé preview.
+- `public/assets/Jagjeevan_Resume_UpdatedNewOct25.pdf`: public résumé preview.
 
 Requires Node.js 20 or newer. There are no npm package dependencies.
 

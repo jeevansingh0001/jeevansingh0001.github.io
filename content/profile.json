@@ -14,45 +14,80 @@
   "experience": {
     "company": "Amdocs",
     "period": "December 2023 – Present",
-    "current": "Software Developer",
+    "location": "Pune, India",
+    "headline": "Software that supports real operations.",
+    "current": "Experienced Software Developer",
     "previous": "Associate Software Engineer",
+    "roles": [
+      {
+        "title": "Experienced Software Developer",
+        "start": "2025-05",
+        "period": "May 2025 – Present",
+        "current": true
+      },
+      {
+        "title": "Associate Software Engineer",
+        "start": "2023-12",
+        "period": "December 2023 – May 2025",
+        "current": false
+      }
+    ],
     "areas": [
       {
-        "title": "Enterprise telecom systems",
-        "text": "Develop and enhance B2B CRM and order-management capabilities using Java, Spring Boot, REST APIs, and Oracle SQL. Collaborate across order orchestration, provisioning, product catalog, and billing integration."
+        "priority": 10,
+        "emoji": "📡",
+        "title": "Enterprise Telecom Systems",
+        "text": "Developed Java/Spring Boot microservices, REST APIs, and Oracle SQL solutions for enterprise Customer Relationship Management (CRM) and Order Management System (OMS), integrating BSS and OSS workflows for order processing, provisioning, activation, and service changes across B2B/B2C telecommunications services."
       },
       {
-        "title": "Delivery & production ownership",
-        "text": "Own CRM enhancements from requirements and development through testing, deployment, and issue resolution. Support recurring releases, investigate defects, and coordinate dependencies across technical and business teams."
+        "priority": 20,
+        "emoji": "🔄",
+        "title": "Application Migration & Modernization",
+        "text": "Migration of Amdocs Service Order Manager (SOM) to Order Delivery Orchestrator (ODO), supporting OSS-driven services orchestration and enterprise fixed-line products, including EWL, IPVPN, and Cisco SD-WAN. Migrated application scripts from 32-bit to 64-bit Linux and supported integration validation and production cutover."
       },
       {
-        "title": "Automation & modernization",
-        "text": "Built a Python and Flask deployment-validation application for database checks, release tracking, and Excel and email reporting. Migrated application scripts from 32-bit to 64-bit Linux and supported integration validation and production cutover."
+        "priority": 30,
+        "emoji": "🚀",
+        "title": "Delivery & Production Ownership",
+        "text": "Implemented Amdocs CRM enhancements and provide solutions using Java, Spring Boot, and SQL translating defined business requirements into functional solutions within an agile development environment."
       },
       {
-        "title": "Developer tooling & notifications",
-        "text": "Enhanced order-triggered customer notifications and template previews. Automated template conversion, Git check-ins, release packaging, and deployment imports; developed and adapted Java dependency-analysis, SQL rollback, and secure file-transfer utilities."
+        "priority": 50,
+        "emoji": "🤖",
+        "title": "Automation & GenAI-Powered Engineering Platform",
+        "text": "Designed and developed a deployment validation application using Python, Flask, Oracle Database and Open PyXL automating database verification release tracking and Excel and email reporting. Built an internal GenAI - powered engineering platform using Cursor and MCPs, integrating Kafka, databases, Jira, Bit bucket, and unix operations; developed agentic AI and RAG workflows for production-defect analysis, root cause investigation, and order remediation."
+      },
+      {
+        "priority": 40,
+        "emoji": "✉️",
+        "title": "Customer Notifications & Email Enhancements",
+        "text": "Enhanced CRM customer notification framework to support communication triggered by order creation, updates and amendments. Automated template conversion, Git check-ins, release packaging, and deployment imports; developed and adapted Java dependency-analysis, SQL rollback, and secure file-transfer utilities. "
       }
     ]
   },
   "education": {
+    "headline": "Foundations in Computer Science and Applied Mathematics.",
+    "summary": "My undergraduate education built a strong foundation in computing, software systems, and analytical problem-solving, shaping how I approach complex technical challenges.",
     "degree": "Bachelor of Engineering in Computer Engineering",
     "school": "Thapar Institute of Engineering and Technology",
     "location": "Patiala, India",
     "period": "July 2019 – June 2023",
     "grade": "7.71 / 10 CGPA",
     "focus": "Elective focus: Mathematics and Computing",
+    "showCourseIds": true,
     "courses": [
-      "Data Structures & Algorithms",
-      "Operating Systems",
-      "Database Management Systems",
-      "Software Engineering",
-      "Computer Networks",
-      "Machine Learning",
-      "Probability & Statistics",
-      "Matrix Computation",
-      "Mathematical Modeling & Simulation",
-      "Computational Number Theory"
+      { "name": "Data Structures & Algorithms", "codes": ["UCS301", "UCS415"] },
+      { "name": "Operating Systems", "codes": ["UCS303"] },
+      { "name": "Database Management Systems", "codes": ["UCS310"] },
+      { "name": "Software Engineering", "codes": ["UCS503"] },
+      { "name": "Computer Networks", "codes": ["UCS414"] },
+      { "name": "Machine Learning", "codes": ["UML501"] },
+      { "name": "Probability & Statistics", "codes": ["UCS410"] },
+      { "name": "Matrix Computation", "codes": ["UMC622"] },
+      { "name": "Mathematical Modeling & Simulation", "codes": ["UMC512"] },
+      { "name": "Computational Number Theory", "codes": ["UMC742"] },
+      { "name": "Social Network Analysis", "codes": ["UCS813"] },
+      { "name": "Ethical Hacking", "codes": ["UCS806"] }
     ]
   },
   "skills": [
