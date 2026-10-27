@@ -24,5 +24,5 @@ for(const page of pages){
 }
 assert.equal(pages.length,7);
 assert(files.every(p=>!p.endsWith('.docx')&&!p.includes('.local')),'Unexpected private source file in output');
-assert(fs.statSync(path.join(root,'assets/Jagjeevan_Singh_Soni_Resume.pdf')).size>1000);
+assert(fs.statSync(path.join(root,'assets/Jagjeevan_Resume_UpdatedNewOct25.pdf')).size>1000);
 console.log(`Passed: ${pages.length} pages, ${links} internal references, metadata, headings, output isolation, and attribution checks.`);

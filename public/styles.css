@@ -135,6 +135,52 @@ html:has(.home-page)::-webkit-scrollbar,
 .panel-company { display: flex; align-items: center; gap: 15px; padding: 18px; border: 1px solid var(--glass-line); border-radius: 18px; background: var(--glass); margin-bottom: 18px; }
 .panel-company h3 { font-size: 1rem; margin-bottom: 4px; }
 .panel-company p { font-size: .8rem; }
+.experience-company { padding: 22px; border: 1px solid var(--glass-line); border-radius: 18px; background: var(--glass); }
+.experience-company-heading { display: flex; align-items: center; gap: 14px; }
+.experience-company-heading > div { min-width: 0; }
+.experience-company-heading .brand-frame.brand-amdocs { flex-basis: 46px; width: 46px; height: 46px; }
+.experience-company-heading h3 { margin: 0; font-size: 1.15rem; font-weight: 500; line-height: 1.4; }
+.experience-company-heading p { margin-top: 3px; font-size: .75rem; line-height: 1.6; }
+.role-progression { position: relative; list-style: none; padding: 0 0 0 29px; margin: 24px 0 0 22px; }
+.role-progression::before { content: ''; position: absolute; top: 8px; bottom: 30px; left: 0; width: 1px; background: var(--glass-line); }
+.role-progression li { position: relative; padding-bottom: 24px; }
+.role-progression li:last-child { padding-bottom: 0; }
+.role-progression li::before { content: ''; position: absolute; top: 7px; left: -33px; width: 9px; height: 9px; border-radius: 50%; background: var(--home-muted); }
+.role-progression .role-current::before { background: var(--overview-accent); }
+.role-progression h4 { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.45; letter-spacing: -.01em; }
+.role-progression .role-period { margin-top: 4px; font-size: .75rem; line-height: 1.6; }
+.role-progression .role-current .role-period { color: var(--overview-accent); }
+.role-current-badge { display: inline-block; margin-top: 9px; padding: 2px 9px; border-radius: 6px; background: color-mix(in srgb, var(--overview-accent) 10%, transparent); color: var(--overview-accent); font-size: .7rem; }
+.experience-work-label { margin: 27px 0 12px; font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .13em; color: var(--home-muted); }
+.experience-contributions { display: grid; gap: 10px; }
+.experience-contribution { border: 1px solid var(--glass-line); border-radius: 14px; background: var(--glass); transition: border-color .24s ease, background .24s ease; }
+.experience-contribution summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; list-style: none; padding: 17px 18px; color: var(--home-text); font-size: .88rem; font-weight: 500; line-height: 1.5; cursor: pointer; }
+.experience-contribution summary::-webkit-details-marker { display: none; }
+.experience-title { display: flex; align-items: baseline; gap: 11px; min-width: 0; }
+.experience-emoji { flex: 0 0 22px; font-size: 1.1rem; line-height: 1; text-align: center; }
+.experience-toggle { position: relative; flex: 0 0 14px; height: 14px; color: var(--overview-accent); }
+.experience-toggle::before, .experience-toggle::after { content: ''; position: absolute; top: 50%; left: 50%; width: 12px; height: 1.5px; border-radius: 1px; background: currentColor; transform: translate(-50%, -50%); transition: transform .28s var(--motion-ease), opacity .2s ease; }
+.experience-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+.experience-contribution[open] .experience-toggle::after { transform: translate(-50%, -50%) rotate(180deg); opacity: 0; }
+.experience-contribution[open] { border-color: var(--overview-accent); }
+.experience-contribution summary:focus-visible { outline: 2px solid var(--overview-accent); outline-offset: 4px; border-radius: 14px; }
+.experience-contribution > p { margin: 0; padding: 0 18px 18px; font-size: .82rem; line-height: 1.8; }
+/* Preserve native disclosure behavior, adding reversible height and fade transitions. */
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  .experience-contribution { interpolate-size: allow-keywords; }
+  .experience-contribution::details-content { height: 0; opacity: 0; overflow: clip; transition: height .32s var(--motion-ease), opacity .2s ease, content-visibility .32s allow-discrete; }
+  .experience-contribution[open]::details-content { height: auto; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-contribution, .experience-toggle::before, .experience-toggle::after { transition: none; }
+  .experience-contribution::details-content { transition: none; }
+}
+@media (max-width: 760px) {
+  .experience-company { padding: 17px 14px; }
+  .role-progression { padding-left: 22px; }
+  .role-progression li::before { left: -26px; }
+  .role-progression h4 { font-size: .94rem; }
+}
 .panel-list { display: grid; gap: 12px; }
 .panel-list article { display: grid; grid-template-columns: 26px 1fr; gap: 10px; padding: 18px; border: 1px solid var(--glass-line); border-radius: 16px; background: var(--glass); }
 .panel-list h3 { font-size: 1rem; margin-bottom: 7px; }
@@ -142,11 +188,26 @@ html:has(.home-page)::-webkit-scrollbar,
 .panel-symbol { color: var(--lime); font-size: 1.1rem; }
 .detail-card { padding: 22px; border: 1px solid var(--glass-line); border-radius: 18px; background: var(--glass); }
 .school-detail { display: flex; align-items: flex-start; gap: 20px; }
-.school-detail h3 { font-size: 1.05rem; margin: 8px 0; }
+.school-info { flex: 1; min-width: 0; }
+.school-detail h3 { font-size: 1.3rem; margin: 8px 0 12px; line-height: 1.4; font-weight: 500; }
 .school-detail p { font-size: .82rem; }
+.school-detail .school-name { font-size: 1.1rem; line-height: 1.5; color: var(--home-text); font-weight: 500; }
+.school-detail .school-location { margin-top: 5px; }
 .school-detail strong { display: inline-block; color: var(--home-text); font-size: 1.5rem; letter-spacing: -.04em; margin: 17px 0 5px; }
-.course-cloud { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-.course-cloud span { padding: 7px 11px; border: 1px solid var(--glass-line); border-radius: 8px; font-size: .72rem; color: var(--home-text); }
+.school-detail .school-focus { font-size: .82rem; line-height: 1.7; margin-top: 12px; padding: 9px 12px; color: var(--overview-accent); font-weight: 500; background: color-mix(in srgb, var(--overview-accent) 8%, transparent); border-left: 2px solid var(--overview-accent); border-radius: 0 8px 8px 0; }
+.coursework-heading { font-size: 1rem; font-weight: 500; margin: 26px 0 13px; letter-spacing: -.015em; }
+.course-cloud { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; list-style: none; padding: 0; margin: 0; }
+.course-cloud li { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 5px; min-height: 52px; padding: 12px 14px 12px 22px; border: 1px solid var(--glass-line); border-radius: 12px; background: var(--glass); color: var(--home-text); transition: border-color .2s ease, background .2s ease; }
+.course-cloud li::before { content: ''; position: absolute; left: 11px; top: 20px; width: 3px; height: 12px; border-radius: 2px; background: color-mix(in srgb, var(--overview-accent) 55%, transparent); }
+.course-cloud li:hover { border-color: color-mix(in srgb, var(--overview-accent) 40%, transparent); }
+.course-name { font-size: .72rem; line-height: 1.65; text-wrap: pretty; }
+.course-code { font-family: Consolas, monospace; font-size: .7rem; line-height: 1.5; color: var(--home-muted); letter-spacing: .035em; }
+@media (max-width: 420px) {
+  .course-cloud { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .course-cloud li { transition: none; }
+}
 .panel-projects .project-grid { gap: 14px; }
 .panel-projects .project-card { background: var(--glass); border-color: var(--glass-line); }
 .panel-projects .project-copy { padding: 16px; }
@@ -164,7 +225,7 @@ html:has(.home-page)::-webkit-scrollbar,
   .panel-skills, .panel-recognition { grid-template-columns: 1fr; }
   .panel-projects .project-grid { grid-template-columns: 1fr; }
   .school-detail { gap: 12px; }
-  .school-detail h3 { font-size: .9rem; }
+  .school-detail h3 { font-size: 1.18rem; }
 }
 .brand-frame.brand-amdocs img {
   padding: 7px;

@@ -1,0 +1,6 @@
+Created with the built-in image_gen tool from public/assets/jagjeevan-profile.jpeg.
+Final prompt:
+Use case: background-extraction.
+Asset type: circular photographic sticker for a professional email signature to university professors.
+Input image 1: edit target, the user's actual portfolio portrait.
+Primary request: turn this exact photograph into a clean circular profile-image sticker. Preserve the source photograph faithfully, including this person's exact facial features, expression, glasses, blue turban, beard, suit, blue tie, and photographic texture. Do not redraw, stylize, retouch, beautify, or invent details. Use the same centered circular crop as a website image using border-radius:50% on this square source. Retain the original gray photographic background inside the circle. Make every pixel outside the circle genuinely transparent. The circle should nearly fill the square canvas, with only a small transparent safety margin. Use a subtle thin neutral gray outer edge, suitable on a white email background. No text, decoration, watermark, shadows, or other objects. Output a single transparent PNG.
