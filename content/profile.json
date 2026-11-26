@@ -8,7 +8,7 @@
   "url": "https://jeevansingh0001.github.io",
   "intro": "Software developer with a structured approach to problem solving, a strong sense of ownership, and a commitment to continuous learning.",
   "overviewSummary": "Combines a foundation in computer engineering with professional experience in software delivery and cross-functional collaboration. Committed to advancing technical expertise through further study and applying sound engineering judgment to complex challenges.",
-  "overviewSkills": ["Java", "Spring Boot", "Python", "REST APIs", "Oracle SQL", "Microservices", "Git", "CI/CD"],
+  "overviewSkills": ["Java", "Spring Boot", "Python", "REST APIs", "Oracle Database", "Microservices", "Git", "CI/CD"],
   "about": "At Amdocs, I work on enterprise telecom systems, from CRM and order management to release automation and production support. My projects extend that engineering practice into audio recognition, computer vision, and brain–computer interfaces.",
   "direction": "I am interested in deepening my technical foundations through graduate study, connecting practical software delivery with the study of computing systems and applied machine learning.",
   "experience": {
@@ -23,12 +23,14 @@
         "title": "Experienced Software Developer",
         "start": "2025-05",
         "period": "May 2025 – Present",
+        "summary": "I own CRM releases and production support, build deployment checks, and develop AI-assisted tools for investigating order issues.",
         "current": true
       },
       {
         "title": "Associate Software Engineer",
         "start": "2023-12",
         "period": "December 2023 – May 2025",
+        "summary": "I developed CRM enhancements with Java, Spring Boot, and SQL, and automated notification-template packaging and deployment.",
         "current": false
       }
     ],
@@ -92,91 +94,226 @@
   },
   "skills": [
     {
-      "group": "Languages",
+      "group": "Programming and scripting",
+      "short": "Languages",
+      "icon": "⌨️",
       "items": [
-        "Java",
-        "Python",
-        "SQL",
-        "JavaScript",
-        "Shell scripting",
-        "Dart"
+        {
+          "name": "Java",
+          "emoji": "☕",
+          "heading": "Building telecom services",
+          "detail": "I develop CRM and order-management features in Java. My release tooling also uses Java to convert notification templates and track dependencies.",
+          "context": "experience"
+        },
+        {
+          "name": "Python",
+          "emoji": "🐍",
+          "heading": "From signals to services",
+          "detail": "I used Python to prepare EEG recordings, compare classifiers, and build the desktop toolbox that tied the experiment together.",
+          "context": "neuro-data-lab"
+        },
+        {
+          "name": "SQL",
+          "emoji": "🗃️",
+          "heading": "Checking stock before checkout",
+          "detail": "In MED-e-CARE, I connected ordering to the stock records so the application could flag an unavailable medicine before a customer proceeded.",
+          "context": "med-e-care"
+        },
+        {
+          "name": "JavaScript",
+          "emoji": "⚡",
+          "heading": "Interactive web interfaces",
+          "detail": "JavaScript brings browser interfaces to life by responding to user input, changing views, and updating what a visitor sees."
+        },
+        {
+          "name": "Shell scripting",
+          "emoji": "🐚",
+          "heading": "Automating Linux workflows",
+          "detail": "I worked on application scripts during a 32-bit to 64-bit Linux migration and supported validation around the production cutover.",
+          "context": "experience"
+        }
       ]
     },
     {
-      "group": "Applications & data",
+      "group": "Application development",
+      "short": "Applications",
+      "icon": "🧩",
       "items": [
-        "Spring Boot",
-        "Flask",
-        "FastAPI",
-        "Flutter",
-        "React",
-        "REST APIs",
-        "Oracle Database",
-        "PostgreSQL",
-        "MySQL"
+        {
+          "name": "Spring Boot",
+          "emoji": "🌱",
+          "heading": "Order-management services",
+          "detail": "I build Spring Boot microservices for CRM and order management, connecting business requirements with telecom provisioning and activation workflows.",
+          "context": "experience"
+        },
+        {
+          "name": "Flask",
+          "emoji": "🧪",
+          "heading": "Validating releases",
+          "detail": "I built a Flask application for post-deployment database checks, release tracking, and Excel and email reporting.",
+          "context": "experience"
+        },
+        {
+          "name": "React",
+          "emoji": "⚛️",
+          "heading": "Component-based interfaces",
+          "detail": "React separates a screen into reusable components and keeps each view in sync with its data."
+        },
+        {
+          "name": "Flutter",
+          "emoji": "📱",
+          "heading": "A listening interface",
+          "detail": "In Shabad Shazam, the Flutter interface captures an audio clip and shows the hymn and performer returned by the recognition service.",
+          "context": "shabad-shazam"
+        },
+        {
+          "name": "REST APIs",
+          "emoji": "🔌",
+          "heading": "Linking mobile and backend",
+          "detail": "The recording app sends captured audio to a Python service and receives catalog metadata that the listener can act on.",
+          "context": "shabad-shazam"
+        },
+        {
+          "name": "Microservices",
+          "emoji": "🧱",
+          "heading": "Telecom order processing",
+          "detail": "I develop services for enterprise CRM and order management across order tracking, provisioning, and activation.",
+          "context": "experience"
+        }
       ]
     },
     {
-      "group": "Scientific computing",
+      "group": "Tools and platforms",
+      "short": "Platforms",
+      "icon": "🛠️",
       "items": [
-        "scikit-learn",
-        "NumPy",
-        "OpenCV",
-        "dlib",
-        "PyTorch",
-        "PyQt"
+        {
+          "name": "Git",
+          "emoji": "🌿",
+          "heading": "Release history",
+          "detail": "I automated Git check-ins as part of the notification-template release workflow.",
+          "context": "experience"
+        },
+        {
+          "name": "Docker",
+          "emoji": "🐳",
+          "heading": "Reproducing a development environment",
+          "detail": "I configured Docker Compose so the recognition backend and its PostgreSQL catalog can run together locally.",
+          "context": "shabad-shazam"
+        },
+        {
+          "name": "Jenkins",
+          "emoji": "⚙️",
+          "heading": "Build and delivery pipelines",
+          "detail": "Jenkins runs repeatable build, test, and delivery steps as a pipeline."
+        },
+        {
+          "name": "Kubernetes",
+          "emoji": "☸️",
+          "heading": "Container orchestration",
+          "detail": "Kubernetes coordinates how containerized workloads are deployed, scaled, and kept running."
+        },
+        {
+          "name": "Kafka",
+          "emoji": "📨",
+          "heading": "Monitoring order-related events",
+          "detail": "I integrated Kafka monitoring into an internal engineering platform used for production defect analysis and order remediation.",
+          "context": "experience"
+        },
+        {
+          "name": "Microsoft Azure",
+          "emoji": "☁️",
+          "heading": "Cloud platforms",
+          "detail": "Azure provides cloud infrastructure and services for hosting, connecting, and monitoring applications."
+        },
+        {
+          "name": "Linux/Unix",
+          "emoji": "🐧",
+          "heading": "Migration and operations",
+          "detail": "I migrated scripts to 64-bit Linux and worked on Unix operations for internal engineering tooling.",
+          "context": "experience"
+        },
+        {
+          "name": "CI/CD",
+          "emoji": "🔄",
+          "heading": "Release automation",
+          "detail": "My release work includes generating change packages, automating deployment imports, and verifying database changes.",
+          "context": "experience"
+        },
+        {
+          "name": "OAuth 2.0",
+          "emoji": "🔑",
+          "heading": "Delegated authorization",
+          "detail": "OAuth 2.0 lets applications request scoped access to resources on a user’s behalf."
+        }
       ]
     },
     {
-      "group": "Delivery & platforms",
+      "group": "Machine learning and computer vision",
+      "short": "ML & vision",
+      "icon": "🧠",
       "items": [
-        "Git",
-        "Docker",
-        "Jenkins",
-        "Linux / Unix",
-        "CI/CD",
-        "Release automation",
-        "Agile"
+        {
+          "name": "PyTorch",
+          "emoji": "🔥",
+          "heading": "Tensor computation",
+          "detail": "PyTorch supports tensor operations, automatic differentiation, and training neural networks."
+        },
+        {
+          "name": "scikit-learn",
+          "emoji": "🌳",
+          "heading": "Comparing EEG classifiers",
+          "detail": "I trained and evaluated five classifiers in the EEG toolbox. Extra Trees reached 95.45% accuracy in the offline evaluation.",
+          "context": "neuro-data-lab"
+        },
+        {
+          "name": "NumPy",
+          "emoji": "🔢",
+          "heading": "Numerical computing",
+          "detail": "NumPy represents data as multidimensional arrays for numerical transformations, aggregation, and analysis."
+        },
+        {
+          "name": "OpenCV",
+          "emoji": "📷",
+          "heading": "Monitoring webcam video",
+          "detail": "I used OpenCV to process webcam frames and normalize low-light video for DriveSafe’s drowsiness detector.",
+          "context": "drivesafe"
+        },
+        {
+          "name": "dlib",
+          "emoji": "📍",
+          "heading": "Tracking facial landmarks",
+          "detail": "I integrated a 68-point landmark model to track eye and mouth movement and detect sustained signs of drowsiness.",
+          "context": "drivesafe"
+        }
       ]
-    }
-  ],
-  "recognition": [
-    {
-      "title": "Ownership & Excellence",
-      "org": "Amdocs",
-      "text": "Recognized for dependable ownership, customer relationships, and technical contributions to CRM release delivery."
     },
     {
-      "title": "Special Recognition",
-      "org": "Amdocs · January 2025 & August 2026",
-      "text": "Recognized on two occasions for contributions, sustained commitment, and dedication to work."
-    },
-    {
-      "title": "Software engineering virtual programs",
-      "org": "Forage · J.P. Morgan & Goldman Sachs · 2022",
-      "text": "Completed practical simulations involving stock-price data integration, financial visualization, and password-security analysis."
-    },
-    {
-      "title": "Secure software development",
-      "org": "Udemy / Amdocs · 2026",
-      "text": "Completed training in secure coding principles, secure application development, and web application security."
-    }
-  ],
-  "community": [
-    {
-      "title": "Event Management Head",
-      "org": "VIRSA · Thapar Institute",
-      "text": "Organized cultural festivals and talks, coordinated event planning, and led student teams."
-    },
-    {
-      "title": "Public Relations Head",
-      "org": "OWASP Student Chapter",
-      "text": "Supported hackathons, guest lectures, and webinars through publicity and sponsorship outreach."
-    },
-    {
-      "title": "Community service & student engagement",
-      "org": "Volunteering and campus activities",
-      "text": "Contributed to food distribution and pandemic relief activities, student outreach, and Model United Nations research and debate."
+      "group": "Databases",
+      "short": "Databases",
+      "icon": "🗄️",
+      "items": [
+        {
+          "name": "Oracle Database",
+          "emoji": "🏛️",
+          "heading": "Post-deployment verification",
+          "detail": "I used Oracle Database in a release-validation application to check deployments and report results.",
+          "context": "experience"
+        },
+        {
+          "name": "MySQL",
+          "emoji": "🐬",
+          "heading": "Relational data",
+          "detail": "MySQL stores related records in tables and supports SQL queries, transactions, and integrity constraints."
+        },
+        {
+          "name": "PostgreSQL",
+          "emoji": "🐘",
+          "heading": "Indexing reference audio",
+          "detail": "Shabad Shazam stores audio fingerprints in PostgreSQL and compares their time offsets to identify a catalog recording.",
+          "context": "shabad-shazam"
+        }
+      ]
     }
   ],
   "photo": "/assets/jagjeevan-profile.jpeg"
