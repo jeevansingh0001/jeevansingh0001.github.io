@@ -4,11 +4,12 @@ Personal portfolio published at https://jeevansingh0001.github.io/.
 
 ## Edit content
 
-- `content/profile.json`: introduction, experience, education, skills, recognition, and community work.
+- `content/profile.json`: introduction, experience, education, and individual skills.
+- `content/credentials.json`: recognition, leadership, community work, and certificates with original files and previews.
 - `content/projects.json`: project summaries and complete case studies.
-- `public/styles.css`: visual styling and responsive layouts.
+- `public/styles.css` and `public/showcase.css`: profile layout, galleries, and responsive styling.
 - `scripts/build.mjs`: page templates and static build.
-- `public/assets/Jagjeevan_Resume_UpdatedNewOct25.pdf`: public résumé preview.
+- `public/assets/MS_Resume_Jagjeevan_FINAL.pdf`: résumé opened by the overview and gallery buttons.
 
 Requires Node.js 20 or newer. There are no npm package dependencies.
 
@@ -37,15 +38,7 @@ To restore an earlier site, revert the relevant commit and push the revert. Do n
 
 ## Update the PDF résumé
 
-The editable résumé content is shared with the website. Use Python 3 with `reportlab` and `pypdf` installed:
-
-```sh
-python scripts/resume.py
-npm run build
-npm run check
-```
-
-Inspect every page of the resulting PDF before committing it. The PDF is committed as a public asset so CI needs only Node.js.
+Copy the approved PDF into `public/assets/` and update `resumeUrl` in `scripts/build.mjs` if its filename changes. Run the build and link checks, then open the overview’s résumé button in the local preview.
 
 ## Content boundaries
 
@@ -57,6 +50,6 @@ No third-party analytics, contact backend, tracking scripts, or remote fonts are
 
 Add your portrait to `public/assets/` and set `"photo": "/assets/your-photo.jpg"` in `content/profile.json`. It is cropped into the circular profile frame and reused in the mobile header. Until then, a neutral silhouette is shown.
 
-The overview uses a scrollable panel on desktop and stacked cards on mobile. The default navy and lime theme can be switched to light using either Theme button; the preference is saved locally.
+On desktop, the profile stays on the left as the seven portfolio tabs switch in the right panel. On phones, the compact profile header stays at the top. The Theme button switches between dark and light appearances and saves the preference locally.
 
 Logo sources and licenses are recorded in `public/assets/credits.txt`. The profile photo is `public/assets/jagjeevan-profile.jpeg`.

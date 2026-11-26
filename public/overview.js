@@ -14,17 +14,8 @@ themeButtons.forEach(button => button.addEventListener('click', () => {
   syncTheme();
 }));
 syncTheme();
-const header = document.querySelector('.scroll-header');
-const profile = document.querySelector('.portrait-frame');
-const mobile = matchMedia('(max-width: 760px)');
-const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const contentPanel = document.querySelector('.overview-panel');
 const main = document.querySelector('main');
-function syncHeader() {
-  const visible = mobile.matches && profile.getBoundingClientRect().bottom < 72;
-  header.classList.toggle('is-visible', visible);
-  header.inert = !visible;
-}
 const links = [...document.querySelectorAll('.bottom-ribbon a[data-panel-target]')];
 const panels = [...document.querySelectorAll('.overview-panel .panel-view')];
 const ribbon = document.querySelector('.bottom-ribbon');
@@ -38,7 +29,7 @@ function syncRibbon() {
   ribbon.classList.add('ribbon-ready');
 }
 
-function selectPanel(name, move = false) {
+function selectPanel(name) {
   const target = panels.find(panel => panel.dataset.panel === name) || panels[0];
   const changed = !target.classList.contains('is-active');
   panels.forEach(panel => {
@@ -51,23 +42,27 @@ function selectPanel(name, move = false) {
     else link.removeAttribute('aria-current');
   });
   syncRibbon();
-  if (changed) contentPanel.scrollTop = 0;
-  if (move && mobile.matches) {
-    contentPanel.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+  if (changed) {
+    contentPanel.scrollTop = 0;
+    main.scrollTop = 0;
   }
 }
 links.forEach(link => link.addEventListener('click', event => {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
-  selectPanel(link.dataset.panelTarget, true);
+  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+  selectPanel(link.dataset.panelTarget);
 }));
-selectPanel('overview');
-let scheduled = false;
-function update() {
-  if (scheduled) return;
-  scheduled = true;
-  requestAnimationFrame(() => { syncHeader(); scheduled = false; });
+function readLocation() {
+  const hash = location.hash.slice(1);
+  const role = /^role-\d{4}-\d{2}$/.test(hash) && document.getElementById(hash);
+  const section = role ? 'experience' : /^skill-\d+-\d+$/.test(hash) ? 'skills' : hash;
+  selectPanel(section === 'work' ? 'projects' : section || 'overview');
+  if (role) {
+    role.open = true;
+    role.querySelector('summary').focus({ preventScroll: true });
+  }
 }
-addEventListener('scroll', update, { passive: true });
-main.addEventListener('scroll', update, { passive: true });
-addEventListener('resize', () => { update(); syncRibbon(); });
-update();
+addEventListener('hashchange', readLocation);
+readLocation();
+addEventListener('resize', syncRibbon);
