@@ -48,8 +48,8 @@ No third-party analytics, contact backend, tracking scripts, or remote fonts are
 
 ## Profile photo
 
-Add your portrait to `public/assets/` and set `"photo": "/assets/your-photo.jpg"` in `content/profile.json`. It is cropped into the circular profile frame and reused in the mobile header. Until then, a neutral silhouette is shown.
+Add your portrait to `public/assets/` and set `"photo": "/assets/your-photo.jpg"` in `content/profile.json`. The homepage and compact phone header use the same image. A neutral silhouette appears when no photo is configured.
 
-On desktop, the profile stays on the left as the seven portfolio tabs switch in the right panel. On phones, the compact profile header stays at the top. The Theme button switches between dark and light appearances and saves the preference locally.
+On desktop, the profile stays on the left as the seven portfolio tabs switch in the right panel. Phones open on the full profile. Scrolling into the overview brings the name, résumé, and theme control into a compact header. Swipe the bottom ribbon to reach all seven sections. The Theme button switches between dark and light appearances and saves the preference locally.
 
 Logo sources and licenses are recorded in `public/assets/credits.txt`. The profile photo is `public/assets/jagjeevan-profile.jpeg`.

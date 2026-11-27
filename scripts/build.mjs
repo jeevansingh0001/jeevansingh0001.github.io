@@ -48,7 +48,7 @@ const experienceRoles = [...profile.experience.roles].sort((a, b) => b.start.loc
 const roleId = role => 'role-' + role.start;
 const riseList = (items, label) => `<ol class="rise-list" aria-label="${e(label)}">${items.map(item => `<li>${item}</li>`).join('')}</ol>`;
 function milestone(brand, period, title, organization) {
-  return `${brandLogo(brand, '', brand === 'thapar')}<span class="rise-copy"><small>${e(period)}</small><strong>${e(title)}</strong>${organization ? `<span>${e(organization)} ${arrow}</span>` : ''}</span>`;
+  return `${brandLogo(brand, '', brand === 'thapar')}<span class="rise-copy"><small>${e(period)}</small><strong>${e(title)}</strong>${organization ? `<span>${e(organization)}&nbsp;${arrow}</span>` : ''}</span>`;
 }
 const overviewCareer = riseList([
   ...experienceRoles.map(role => `<a class="rise-stop" href="#${roleId(role)}">${milestone('amdocs', role.period, role.title, profile.experience.company)}</a>`),
@@ -73,12 +73,12 @@ const panelViews = `
 <section class="panel-view profile-section" id="education" data-panel="education" aria-labelledby="panel-title-education">${heading("education", "Academic", "foundations", profile.education.summary)}<article class="detail-card school-detail"><div class="school-wordmark"><img src="/assets/thapar-logo.png" alt="Thapar Institute of Engineering and Technology" width="176" height="85"></div><div class="school-info"><span class="eyebrow">${e(profile.education.period)}</span><h3>${e(profile.education.degree)}</h3><p class="school-name">${e(profile.education.school)}</p><p class="school-location">${e(profile.education.location)}</p><strong>${e(profile.education.grade)}</strong><p class="school-focus">${e(profile.education.focus)}</p></div></article>${coursework}</section>
 ${projectGallery(projects)}${skillsGallery(profile.skills, projects)}${recognitionGallery(credentials.recognition)}${certificateGallery(credentials.certifications)}`;
 const home = `
-<div class="studio-mast"><div class="studio-mast-inner"><a class="studio-identity" href="#overview">${portrait()}<span>${e(profile.name)}<small>Software developer</small></span></a>
-<div class="studio-mast-actions"><a href="${resumeUrl}" target="_blank" rel="noopener noreferrer">${icon('resume')}<span>View résumé</span> ${arrow}</a><button class="theme-toggle" type="button" aria-label="Switch theme">${icon('theme')}</button></div></div></div>
-<section class="landing" id="overview" aria-label="Profile overview"><div class="landing-grid">
-<div class="profile-block"><div class="portrait-frame">${portrait()}</div><h1>Jagjeevan<br><em>Singh Soni</em></h1><div class="role-identity">${brandLogo('amdocs','Amdocs')}<p class="current-role">${e(profile.experience.current)} <span>at</span> <strong>${e(profile.experience.company)}</strong></p></div><p class="profile-location">${icon('pin')}${e(profile.location)}</p>${actions()}</div>
+<header class="studio-mast"><div class="studio-mast-inner"><a class="studio-identity" href="#profile">${portrait()}<span>${e(profile.name)}<small>${e(profile.role)}</small></span></a>
+<div class="studio-mast-actions"><a href="${resumeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View résumé">${icon('resume')}<span>Résumé</span></a><button class="theme-toggle" type="button" aria-label="Switch theme">${icon('theme')}</button></div></div></header>
+<section class="landing" id="profile" aria-label="Profile overview"><div class="landing-grid">
+<div class="profile-block"><div class="portrait-frame">${portrait()}</div><h1>Jagjeevan<br><em>Singh Soni</em></h1><div class="role-identity">${brandLogo('amdocs','Amdocs')}<p class="current-role">${e(profile.experience.current)} <span>at&nbsp;<strong>${e(profile.experience.company)}</strong></span></p></div><p class="profile-location">${icon('pin')}${e(profile.location)}</p>${actions()}<a class="intro-next" href="#overview">Explore overview <span aria-hidden="true">↓</span></a></div>
 <div class="overview-panel" id="overview-panel" tabindex="0" role="region" aria-label="Portfolio sections">
-<section class="panel-view profile-section is-active" data-panel="overview" aria-labelledby="panel-title-overview">
+<section class="panel-view profile-section is-active" id="overview" data-panel="overview" aria-labelledby="panel-title-overview">
 ${heading("overview", "Professional", "overview", profile.intro)}
 <div class="overview-content">
   <article class="overview-card career-foundations"><h3 class="overview-card-title">Career &amp; foundations</h3>${overviewCareer}<p class="overview-summary">${e(profile.overviewSummary)}</p></article>

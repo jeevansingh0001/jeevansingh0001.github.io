@@ -16,6 +16,12 @@ themeButtons.forEach(button => button.addEventListener('click', () => {
 syncTheme();
 const contentPanel = document.querySelector('.overview-panel');
 const main = document.querySelector('main');
+const profile = document.querySelector('.profile-block');
+const mast = document.querySelector('.studio-mast');
+const nameHeading = profile.querySelector('h1');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const mobileLayout = () => document.documentElement.dataset.layout === 'mobile';
+let wasMobile = mobileLayout();
 const links = [...document.querySelectorAll('.bottom-ribbon a[data-panel-target]')];
 const panels = [...document.querySelectorAll('.overview-panel .panel-view')];
 const ribbon = document.querySelector('.bottom-ribbon');
@@ -27,9 +33,35 @@ function syncRibbon() {
   ribbon.style.setProperty('--indicator-width', `${active.offsetWidth}px`);
   ribbon.style.setProperty('--indicator-height', `${active.offsetHeight}px`);
   ribbon.classList.add('ribbon-ready');
+  if (active.offsetLeft < ribbon.scrollLeft || active.offsetLeft + active.offsetWidth > ribbon.scrollLeft + ribbon.clientWidth) {
+    ribbon.scrollTo({ left: active.offsetLeft - (ribbon.clientWidth - active.offsetWidth) / 2,
+      behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
 }
 
-function selectPanel(name) {
+function syncHeader() {
+  const mobile = mobileLayout();
+  const sheetTop = contentPanel.getBoundingClientRect().top;
+  const visible = mobile && sheetTop <= Math.max(mast.offsetHeight + 1, nameHeading.getBoundingClientRect().bottom);
+  mast.classList.toggle('is-visible', visible);
+  mast.inert = mobile && !visible;
+  profile.inert = mobile && sheetTop <= mast.offsetHeight + 1;
+}
+
+function measureLayout() {
+  const mobile = mobileLayout();
+  if (mobile) {
+    main.style.setProperty('--mast-height', `${mast.offsetHeight}px`);
+    // A tall intro must scroll normally so its last action stays reachable.
+    profile.classList.toggle('is-pinned', profile.offsetHeight <= main.clientHeight + 1);
+    if (!wasMobile && location.hash) readLocation();
+  }
+  wasMobile = mobile;
+  syncHeader();
+  syncRibbon();
+}
+
+function selectPanel(name, scrollBehavior) {
   const target = panels.find(panel => panel.dataset.panel === name) || panels[0];
   const changed = !target.classList.contains('is-active');
   panels.forEach(panel => {
@@ -44,25 +76,35 @@ function selectPanel(name) {
   syncRibbon();
   if (changed) {
     contentPanel.scrollTop = 0;
-    main.scrollTop = 0;
+    if (!mobileLayout()) main.scrollTop = 0;
+  }
+  if (mobileLayout() && scrollBehavior) {
+    main.scrollTo({ top: main.scrollTop + contentPanel.getBoundingClientRect().top - mast.offsetHeight,
+      behavior: reducedMotion.matches ? 'instant' : scrollBehavior });
   }
 }
 links.forEach(link => link.addEventListener('click', event => {
   if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
   if (location.hash !== link.hash) history.pushState(null, '', link.hash);
-  selectPanel(link.dataset.panelTarget);
+  selectPanel(link.dataset.panelTarget, 'smooth');
 }));
 function readLocation() {
   const hash = location.hash.slice(1);
   const role = /^role-\d{4}-\d{2}$/.test(hash) && document.getElementById(hash);
   const section = role ? 'experience' : /^skill-\d+-\d+$/.test(hash) ? 'skills' : hash;
-  selectPanel(section === 'work' ? 'projects' : section || 'overview');
+  const name = section === 'work' ? 'projects' : section;
+  selectPanel(name, panels.some(panel => panel.dataset.panel === name) ? 'instant' : undefined);
+  if (!hash || hash === 'profile') main.scrollTop = 0;
   if (role) {
     role.open = true;
     role.querySelector('summary').focus({ preventScroll: true });
   }
 }
 addEventListener('hashchange', readLocation);
+main.addEventListener('scroll', syncHeader, { passive: true });
+// Observe text reflow and orientation changes as well as the initial layout.
+const sizes = new ResizeObserver(measureLayout);
+for (const element of [main, mast, profile, ribbon]) sizes.observe(element);
+measureLayout();
 readLocation();
-addEventListener('resize', syncRibbon);
