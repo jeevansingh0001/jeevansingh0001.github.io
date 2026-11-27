@@ -7,7 +7,7 @@ export function renderLayoutPreview(html, composition) {
 }
 
 const layouts = [
-  ['sidebar','Persistent profile','The desktop profile stays on the left. On a phone, a compact profile bar stays at the top.'],
+  ['sidebar','Persistent profile','The desktop profile stays on the left. Phones open on the full profile and show a compact header when you scroll into a section.'],
   ['wide','Full-width gallery','Each section uses the full canvas. On a phone, the profile header scrolls with the section.']
 ];
 const sections = ['Projects','Overview','Experience','Education','Skills','Recognition','Certifications'];
