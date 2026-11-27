@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 const source = fs.readFileSync(new URL('../public/overview.js', import.meta.url), 'utf8');
 const theme = fs.readFileSync(new URL('../public/theme.js', import.meta.url), 'utf8');
+const ribbonSource = fs.readFileSync(new URL('../public/ribbon.js', import.meta.url), 'utf8');
 
 function setup({ mobile = false, palette, hash = '' } = {}) {
   const stored = [];
@@ -23,6 +24,8 @@ function setup({ mobile = false, palette, hash = '' } = {}) {
   panels.forEach(p => { p.children = [element(), element()]; });
   const links = panels.map(p => element({ panelTarget: p.dataset.panel }));
   const button = element(), content = element(), main = element(), ribbon = element();
+  const lens = element();
+  ribbon.querySelector = () => lens;
   const profile = element(), mast = element();
   profile.querySelector = () => element();
   content.getBoundingClientRect = () => ({ top: 750 - main.scrollTop });
@@ -31,9 +34,10 @@ function setup({ mobile = false, palette, hash = '' } = {}) {
   const selectors = { '.overview-panel': content, main, '.bottom-ribbon': ribbon, '.profile-block': profile, '.studio-mast': mast };
   const document = { documentElement: root, querySelector: s => selectors[s], querySelectorAll(s) { if (s === '.theme-toggle') return [button]; if (s.includes('a[data-panel-target]')) return links; if (s === '[data-reveal]') return panels.flatMap(p => p.children); return panels; } };
   const context = vm.createContext({ document, location: { hash }, ResizeObserver: class { observe() {} },
-    matchMedia: () => viewport,
+    matchMedia: query => query.includes('reduced-motion') ? { matches: true, addEventListener() {} } : viewport,
     localStorage: { setItem: (...args) => stored.push(args) }, addEventListener() {}, requestAnimationFrame: fn => fn() });
   vm.runInContext(theme, context);
+  vm.runInContext(ribbonSource, context);
   vm.runInContext(source, context);
   return { panels, content, main, root, viewport, links, stored, button, mast, profile,
     select: name => vm.runInContext(`selectPanel('${name}', 'instant')`, context) };

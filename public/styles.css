@@ -285,7 +285,6 @@ html:has(.home-page)::-webkit-scrollbar,
 .overview-panel { backdrop-filter: none; }
 .panel-view.is-active { animation: panel-arrive .24s var(--motion-ease); }
 .panel-view.is-active .journey-current::before { transform-origin: bottom; animation: timeline-arrive .4s ease-out; }
-.bottom-ribbon.ribbon-ready::before { content: ''; position: absolute; top: var(--indicator-y); left: 0; width: var(--indicator-width); height: var(--indicator-height); transform: translateX(var(--indicator-x)); border-radius: 14px; background: color-mix(in srgb, var(--overview-accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--overview-accent) 25%, transparent); transition: transform .28s var(--motion-ease), width .28s var(--motion-ease), height .2s; pointer-events: none; }
 .bottom-ribbon.ribbon-ready a { position: relative; z-index: 1; }
 html[data-theme] .bottom-ribbon.ribbon-ready a[aria-current] { background: transparent; box-shadow: none; }
 .profile-block > .portrait-frame { animation: profile-arrive .6s var(--motion-ease) both; }
