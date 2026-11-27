@@ -35,12 +35,12 @@ function frame(title, description, route, body, isHome=false) {
 <title>${e(title)}</title><meta name="description" content="${e(description)}"><meta name="author" content="${e(profile.name)}">
 <meta name="theme-color" content="#111e2d"><link rel="canonical" href="${profile.url}${route}">
 <meta property="og:type" content="website"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${profile.url}${route}"><meta property="og:site_name" content="${e(profile.name)}">
-<meta name="twitter:card" content="summary"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/showcase.css">
-<script src="/theme.js"></script></head><body class="${isHome?'home-page':'inner-page'}"><a class="skip" href="#main">Skip to content</a>
+<meta name="twitter:card" content="summary"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/showcase.css"><link rel="stylesheet" href="/glass.css">
+<script src="/theme.js"></script><script src="/glass.js" defer></script></head><body class="${isHome?'home-page':'inner-page'}"><a class="skip" href="#main">Skip to content</a>
 ${isHome?'':`<header class="header"><div class="wrap nav"><a class="home-link" href="/">${e(profile.name)}</a><nav aria-label="Main navigation"><a href="/#projects">Projects</a><a href="/#experience">Experience</a><a href="/resume/">View Resume ${arrow}</a></nav></div></header>`}
 <main id="main">${body}</main>
 <footer><div class="wrap footer"><span>© ${new Date().getUTCFullYear()} ${e(profile.name)}</span><div><a href="${profile.github}">GitHub ${arrow}</a><a href="${profile.linkedin}">LinkedIn ${arrow}</a><a href="mailto:${profile.email}">Email ${arrow}</a></div><a href="#main">Back to top ↑</a></div></footer>
-${isHome?'<script src="/overview.js" defer></script><script src="/tabs.js" defer></script><script src="/showcase.js" defer></script>':''}</body></html>`;
+${isHome?'<script src="/ribbon.js" defer></script><script src="/overview.js" defer></script><script src="/tabs.js" defer></script><script src="/showcase.js" defer></script>':''}</body></html>`;
 }
 // Priorities control contribution order without appearing in the rendered page.
 const experienceAreas = [...profile.experience.areas].sort((a, b) => (a.priority ?? Infinity) - (b.priority ?? Infinity));
@@ -87,7 +87,7 @@ ${heading("overview", "Professional", "overview", profile.intro)}
 </div>
 <nav class="overview-contacts" aria-label="Contact Jagjeevan"><a href="mailto:${e(profile.email)}">Email ${arrow}</a><a href="${e(profile.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ${arrow}</a><a href="${e(profile.github)}" target="_blank" rel="noopener noreferrer">GitHub ${arrow}</a></nav>
 </section>${panelViews}</div></div></section>
-<nav class="bottom-ribbon" aria-label="Portfolio sections">${[['overview','Overview'],['experience','Experience'],['education','Education'],['projects','Projects'],['skills','Skills'],['recognition','Recognition'],['certifications','Certifications']].map(([id,label],i)=>'<a href="#'+id+'" data-panel-target="'+id+'"'+(i===0?' aria-current="location"':'')+'>'+icon(id)+'<span>'+label+'</span></a>').join('')}</nav>
+<nav class="bottom-ribbon" aria-label="Portfolio sections"><span class="ribbon-lens" aria-hidden="true"></span>${[['overview','Overview'],['experience','Experience'],['education','Education'],['projects','Projects'],['skills','Skills'],['recognition','Recognition'],['certifications','Certifications']].map(([id,label],i)=>'<a href="#'+id+'" data-panel-target="'+id+'"'+(i===0?' aria-current="location"':'')+'>'+icon(id)+'<span>'+label+'</span></a>').join('')}</nav>
 ${previewDialog}`;
 write('index.html', frame(`${profile.name} — Software Developer`, 'Software developer at Amdocs. Explore enterprise software experience and projects in audio recognition, EEG classification, computer vision, and web applications.', '/', home, true));
 projects.forEach((p,i)=>{

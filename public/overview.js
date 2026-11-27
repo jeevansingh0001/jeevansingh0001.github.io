@@ -25,19 +25,7 @@ let wasMobile = mobileLayout();
 const links = [...document.querySelectorAll('.bottom-ribbon a[data-panel-target]')];
 const panels = [...document.querySelectorAll('.overview-panel .panel-view')];
 const ribbon = document.querySelector('.bottom-ribbon');
-function syncRibbon() {
-  const active = links.find(link => link.hasAttribute('aria-current'));
-  if (!active) return;
-  ribbon.style.setProperty('--indicator-x', `${active.offsetLeft}px`);
-  ribbon.style.setProperty('--indicator-y', `${active.offsetTop}px`);
-  ribbon.style.setProperty('--indicator-width', `${active.offsetWidth}px`);
-  ribbon.style.setProperty('--indicator-height', `${active.offsetHeight}px`);
-  ribbon.classList.add('ribbon-ready');
-  if (active.offsetLeft < ribbon.scrollLeft || active.offsetLeft + active.offsetWidth > ribbon.scrollLeft + ribbon.clientWidth) {
-    ribbon.scrollTo({ left: active.offsetLeft - (ribbon.clientWidth - active.offsetWidth) / 2,
-      behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-  }
-}
+const syncRibbon = createRibbon(ribbon, links, reducedMotion, activateLink);
 
 function syncHeader() {
   const mobile = mobileLayout();
@@ -58,7 +46,7 @@ function measureLayout() {
   }
   wasMobile = mobile;
   syncHeader();
-  syncRibbon();
+  syncRibbon(links.find(link => link.hasAttribute('aria-current')) || links[0]);
 }
 
 function selectPanel(name, scrollBehavior) {
@@ -73,7 +61,7 @@ function selectPanel(name, scrollBehavior) {
     if (link.dataset.panelTarget === target.dataset.panel) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
-  syncRibbon();
+  syncRibbon(links.find(link => link.dataset.panelTarget === target.dataset.panel), Boolean(scrollBehavior));
   if (changed) {
     contentPanel.scrollTop = 0;
     if (!mobileLayout()) main.scrollTop = 0;
@@ -83,11 +71,14 @@ function selectPanel(name, scrollBehavior) {
       behavior: reducedMotion.matches ? 'instant' : scrollBehavior });
   }
 }
+function activateLink(link) {
+  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+  selectPanel(link.dataset.panelTarget, 'smooth');
+}
 links.forEach(link => link.addEventListener('click', event => {
   if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
-  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
-  selectPanel(link.dataset.panelTarget, 'smooth');
+  activateLink(link);
 }));
 function readLocation() {
   const hash = location.hash.slice(1);

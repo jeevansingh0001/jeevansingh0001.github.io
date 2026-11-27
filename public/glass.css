@@ -1,0 +1,84 @@
+/* Shared optical material for controls. Keep their original sizes and hit areas. */
+:root {
+  --glass-body: color-mix(in srgb, var(--studio-raised) 84%, transparent);
+  --glass-rim: color-mix(in srgb, var(--studio-text) 23%, transparent);
+  --glass-shine: #fff5;
+  --glass-shadow: #0004;
+  --glass-wash: color-mix(in srgb, var(--studio-accent) 16%, transparent);
+  --glass-bevel: inset 0 1px 0 var(--glass-shine), inset 1px 0 0 #fff1,
+    inset 0 -1px 1px #0003, 0 2px 5px var(--glass-shadow);
+  --glass-skin: radial-gradient(105% 130% at 4% -35%, var(--glass-shine), transparent 63%),
+    radial-gradient(82% 125% at 100% 130%, var(--glass-wash), transparent 74%),
+    linear-gradient(166deg, #ffffff10, transparent 51%, #00000009 78%, #ffffff12);
+}
+html[data-theme="light"] { --glass-shine: #fffc; --glass-shadow: #172e3b19; }
+
+html[data-theme] :is(button, .profile-block .action, .studio-mast-actions > a, .studio-cta,
+  .button, .submission, .technologies-card .skill-pills a, .disclosure-plus, .experience-toggle) {
+  --surface: var(--glass-body);
+  color: var(--studio-text);
+  border: 1px solid var(--glass-rim);
+  background: radial-gradient(72px 38px at var(--glint-x, -100px) var(--glint-y, -100px), #ffffff25, transparent 88%),
+    var(--glass-skin), var(--surface);
+  box-shadow: var(--glass-bevel);
+  transition: translate .18s ease, scale .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+/* Keep blur on smaller, floating controls, away from the long scrolling lists. */
+.profile-actions .action, .studio-mast-actions > *, .studio-cta, .preview-controls button {
+  -webkit-backdrop-filter: blur(12px) saturate(145%);
+  backdrop-filter: blur(12px) saturate(145%);
+}
+html[data-theme] :is(.profile-block .action-resume, .studio-mast-actions > a, .studio-cta, .button,
+  button[aria-pressed="true"]:not(.theme-toggle), button[aria-selected="true"]) {
+  --surface: color-mix(in srgb, var(--control-accent, var(--studio-accent)) 28%, var(--studio-panel) 68%);
+  border-color: color-mix(in srgb, var(--control-accent, var(--studio-accent)) 62%, var(--glass-rim));
+}
+.profile-block .action-resume, .studio-mast-actions > a, .studio-cta, .button {
+  font-weight: 650;
+}
+html[data-theme] .profile-block .action { border-radius: 15px; }
+html[data-theme] :is(.project-picker, .skill-keys button)[aria-selected="true"] strong,
+html[data-theme] .skill-keys button[aria-pressed="true"] { color: var(--studio-accent); }
+html[data-theme] .technologies-card .skill-pills li:has(a) { border: 0; background: none; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-theme] :is(button, .profile-block .action, .studio-mast-actions > a, .studio-cta,
+    .button, .submission, .technologies-card .skill-pills a):hover {
+    transform: none; translate: 0 -1px;
+    border-color: color-mix(in srgb, var(--studio-accent) 55%, var(--glass-rim));
+    box-shadow: var(--glass-bevel), inset 0 0 15px var(--glass-wash);
+  }
+}
+html[data-theme] :is(button, .profile-block .action, .studio-mast-actions > a, .studio-cta, .button, .submission):active {
+  transform: none; translate: 0 1px; scale: .98;
+}
+html[data-theme] :is(button, .action, .studio-mast-actions > a, .studio-cta, .button, summary, .submission):focus-visible {
+  outline: 2px solid var(--studio-accent); outline-offset: 2px;
+}
+
+html[data-composition] .bottom-ribbon {
+  --dock-fill: color-mix(in srgb, var(--studio-panel) 83%, transparent);
+  isolation: isolate; border: 1px solid var(--glass-rim); border-radius: 32px;
+  background: var(--glass-skin), var(--dock-fill);
+  -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: var(--glass-bevel), 0 8px 25px var(--glass-shadow);
+  touch-action: pan-y pinch-zoom; user-select: none;
+}
+html[data-composition] .bottom-ribbon.can-pan { touch-action: pan-x pinch-zoom; }
+.bottom-ribbon .ribbon-lens {
+  display: none; position: absolute; left: 0; width: 100px; pointer-events: none;
+  transform-origin: left center; will-change: transform; border-radius: 28px;
+  border: 1px solid color-mix(in srgb, var(--studio-accent) 64%, transparent);
+  background: var(--glass-skin), color-mix(in srgb, var(--studio-accent) 24%, var(--studio-raised));
+  box-shadow: var(--glass-bevel), inset 0 -4px 10px var(--glass-wash);
+}
+.bottom-ribbon.ribbon-ready .ribbon-lens { display: block; }
+html[data-composition] .bottom-ribbon a {
+  border-radius: 26px; color: var(--studio-muted); transition: color .16s ease;
+}
+html[data-composition] .bottom-ribbon.ribbon-ready a[aria-current] { color: var(--studio-text); }
+html[data-composition] .bottom-ribbon a:hover:not([aria-current]) { background: transparent; color: var(--studio-text); }
+.bottom-ribbon a:focus-visible { outline-offset: -3px; }
+.bottom-ribbon.is-dragging, .bottom-ribbon.is-dragging a { cursor: grabbing; }
+@media (forced-colors: active) {
+  .bottom-ribbon [aria-current], button:is([aria-pressed="true"], [aria-selected="true"]) { outline: 2px solid Highlight; outline-offset: -3px; }
+}
